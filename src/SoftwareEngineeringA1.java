@@ -1,4 +1,4 @@
-package softwareEngineeringA1;
+package SoftwareEngineeringA1;
 
 public class SoftwareEngineeringA1 {
   public static void main(String[] args) {
