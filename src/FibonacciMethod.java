@@ -13,8 +13,7 @@ public class FibonacciMethod implements FibonacciInterface {
     if (numberOfTerms < 3) {
       throw new IllegalArgumentException(
           "The number of terms cannot be less than three.");
-    }
-    else if (numberOfTerms > 45) {
+    } else if (numberOfTerms > 45) {
       throw new IllegalArgumentException(
           "The number of terms cannot be greater than forty-five.");
     }
