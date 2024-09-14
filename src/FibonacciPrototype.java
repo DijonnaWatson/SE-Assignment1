@@ -1,4 +1,4 @@
-package fibonacci.se;
+package com.example.fibonaccise;
 import java.util.Scanner;
 
 public class FibonacciPrototype {
