@@ -12,7 +12,7 @@ public class FibonacciPrototype {
 
     FibonacciMethod fibMethod = new FibonacciMethod();
 
-    int result = fibMethod.Fibonacci(numberOfTerms, 1, 2);
+    int result = fibMethod.fibonacci(numberOfTerms, 1, 2);
 
     System.out.println("The final term in the fibonacci sequence starting "
         + "with first term: 1 and second term: 2 is " + result);
