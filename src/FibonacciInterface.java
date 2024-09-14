@@ -9,5 +9,5 @@ public interface FibonacciInterface {
    * @param secondTerm, second term inputed by user.
    * @return, returns the final term in the sequence
    */
-  public int Fibonacci(int numberOfTerms, int firstTerm, int secondTerm);
+  public int fibonacci(int numberOfTerms, int firstTerm, int secondTerm);
 }
