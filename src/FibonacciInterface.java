@@ -1,4 +1,4 @@
-package fibonacci.se;
+package com.example.fibonaccise;
 
 public interface FibonacciInterface {
   /**
