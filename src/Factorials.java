@@ -13,7 +13,7 @@ public class Factorials {
         
         // Check for valid input
     while (number < 1 || number > 20) {
-  	  System.out.println("Your number is out of range. Please enter a number between 1 and 20: ");
+      System.out.println("Your number is out of range. Please enter a number between 1 and 20: ");
       number = keyboard.nextInt();
     }
         
