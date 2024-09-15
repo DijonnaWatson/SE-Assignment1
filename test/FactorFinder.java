@@ -1,4 +1,3 @@
-package com.example.default;
 // Main IF
 public interface FactorFinder {
   /**
