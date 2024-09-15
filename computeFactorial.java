@@ -1,4 +1,3 @@
-
 public interface computeFactorial {
-	long calculateFactorial(int number);
+  long calculateFactorial(int number);
 }
