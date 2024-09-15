@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PrototypeFindingAllFactors implements FactorFinder, InputSource, OutputDestination {
+public class PrototypeFindingAllFactors
+        implements FactorFinder, InputSource, OutputDestination {
+
     private String delimiter = ", ";  // Default delimiter
     private static final String INPUT_FILE = "Input.txt";  // Default input file
     private static final String OUTPUT_FILE = "Output.txt";  // Default output file
