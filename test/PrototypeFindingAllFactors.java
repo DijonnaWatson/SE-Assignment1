@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+package com.example.default;
 
 public class PrototypeFindingAllFactors implements FactorFinder, InputSource, OutputDestination {
     private String delimiter = ", ";  // Default delimiter
