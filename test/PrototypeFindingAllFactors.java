@@ -8,25 +8,25 @@ import java.util.Scanner;
 public class PrototypeFindingAllFactors
         implements FactorFinder, InputSource, OutputDestination {
 
-    private String delimiter = ", ";  // Default delimiter
-    private static final String INPUT_FILE = "Input.txt";  // Default input file
-    private static final String OUTPUT_FILE = "Output.txt";  // Default output file
-
-    // Implementation of getFactors method from FactorFinder interface
-    @Override
-    public int[] getFactors(int number) {
-        ArrayList<Integer> factorsList = new ArrayList<>();
-        for (int i = number; i > 0; i--) {
-            if (number % i == 0) {
-                factorsList.add(i); // Add factor to list
-            }
-        }
-        // Convert ArrayList to array
-        int[] factors = new int[factorsList.size()];
-        for (int i = 0; i < factorsList.size(); i++) {
-            factors[i] = factorsList.get(i);
-        }
-        return factors;
+            private String delimiter = ", ";  // Default delimiter
+            private static final String INPUT_FILE = "Input.txt";  // Default input file
+            private static final String OUTPUT_FILE = "Output.txt";  // Default output file
+        
+            // Implementation of getFactors method from FactorFinder interface
+            @Override
+            public int[] getFactors(int number) {
+                ArrayList<Integer> factorsList = new ArrayList<>();
+                for (int i = number; i > 0; i--) {
+                    if (number % i == 0) {
+                        factorsList.add(i); // Add factor to list
+                    }
+                }
+                // Convert ArrayList to array
+                int[] factors = new int[factorsList.size()];
+                for (int i = 0; i < factorsList.size(); i++) {
+                    factors[i] = factorsList.get(i);
+                }
+                return factors;
     }
 
     // Implementation of setDelimiter method from FactorFinder interface
