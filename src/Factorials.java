@@ -1,3 +1,5 @@
+package com.example.factorial;
+
 import java.util.Scanner;
 
 public class Factorials {
