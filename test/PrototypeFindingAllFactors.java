@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import org.junit.jupiter.api.Test;
 
 public class PrototypeFindingAllFactors
     implements FactorFinder, InputSource, OutputDestination {
@@ -29,15 +30,18 @@ public class PrototypeFindingAllFactors
   }
 
   // Implementation of setDelimiter method from FactorFinder interface
-  @Override
+  @Test
   public void setDelimiter(String delimiter) {
-    if (!delimiter.isEmpty()) {
+    if (delimiter.equalsIgnoreCase("default")) {
+      this.delimiter = ", "; // Use default delimiter
+    } else if (!delimiter.isEmpty()) {
       this.delimiter = delimiter; // Use custom delimiter if provided
     }
   }
 
   // Implementation of outputFactors method from OutputDestination interface
   @Override
+  @Test
   public void outputFactors(int[] factors, String outputDestination) {
     if (outputDestination.equalsIgnoreCase("console")) {
       for (int i = 0; i < factors.length; i++) {
@@ -99,7 +103,7 @@ public class PrototypeFindingAllFactors
 
     // Input source selection
     System.out.print("Would you like to input the number from the file or "
-                     + "console? (file/console): ");
+        + "console? (file/console): ");
     String inputSourceChoice = userInput.nextLine();
 
     int number = 0;
@@ -117,7 +121,7 @@ public class PrototypeFindingAllFactors
     }
 
     // Delimiter input with default handling
-    System.out.print("Enter a delimiter (leave blank for default ', '): ");
+    System.out.print("Enter a delimiter (type 'default' for ', '): ");
     String delimiter = userInput.nextLine();
     factorFinder.setDelimiter(delimiter);
 
