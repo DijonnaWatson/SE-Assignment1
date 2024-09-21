@@ -1,5 +1,3 @@
-package com.example.factorFinder;
+package com.example.factorfinder;
 
-public interface InputConfig {
-
-}
+public interface InputConfig {}
