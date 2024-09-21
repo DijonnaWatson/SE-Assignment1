@@ -1,9 +1,10 @@
-package com.example.factorFinder;
+package com.example.factorfinder;
 
 public interface WriteResult {
-	WriteResultStatus getStatus();
+  WriteResultStatus getStatus();
 
-	public static enum WriteResultStatus {
-		SUCCESS, FAILURE;
-	}
+  public static enum WriteResultStatus {
+    SUCCESS,
+    FAILURE;
+  }
 }
