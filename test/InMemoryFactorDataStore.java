@@ -1,4 +1,5 @@
 package com.example.factorfinder;
+import com.example.factorfinder.WriteResult;
 
 // Enum for WriteResult to represent possible outcomes
 enum WriteResult { SUCCESS, FAILURE }
