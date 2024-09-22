@@ -16,3 +16,4 @@ public class InMemoryOutputConfig implements OutputConfig {
   public List<String> getOutputData() {
     return new ArrayList<>(outputData);
   }
+}
