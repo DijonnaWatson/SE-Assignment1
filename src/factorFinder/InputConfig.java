@@ -1,3 +1,5 @@
 package com.example.factorfinder;
 
-public interface InputConfig {}
+public interface InputConfig {
+  List<Integer> getInputData();
+}
