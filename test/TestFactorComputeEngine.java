@@ -37,7 +37,6 @@ public class TestFactorComputeEngine {
 
     // Assert
     assertEquals("[1]", result); // Change based on expected output
-    verify(engine, times(1))
-        .getFactors(1); // Verify that getFactors was called once
+    verify(engine, times(1)).getFactors(1); // Verify that getFactors was called once
   }
 }
