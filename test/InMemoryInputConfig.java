@@ -1,3 +1,5 @@
+package com.example.factorfinder;
+
 public class InMemoryInputConfig implements InputConfig {
   private final List<Integer> inputData;
 
