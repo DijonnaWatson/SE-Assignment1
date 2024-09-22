@@ -1,42 +1,38 @@
-package com.example.factorfinder;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.util.Arrays;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-public class TestFactorComputeEngine {
-  @Mock private FactorComputeEngine engine; // Mock the dependency
+@ExtendWith(MockitoExtension.class)
+class TestFactorComputeEngineTest {
+  @Mock private FactorComputeEngine engine; // Mock the API dependency
 
   @InjectMocks
-  private TestFactorComputeEngine
-      testFactorComputeEngine; // The class under test
+  private TestFactorComputeEngine testFactorComputeEngine; // Class under test
 
-  public TestFactorComputeEngine() {
-    MockitoAnnotations.openMocks(this); // Initialize mocks
-  }
-
-  public String prototype(FactorComputeEngine engine) {
-    int[] result = engine.getFactors(1);
-    return Arrays.toString(result); // Assuming you want to return a string
-                                    // representation of the factors
+  @BeforeEach
+  void setUp() {
+    // Any setup can be done here if needed
   }
 
   @Test
-  public void testPrototype() {
+  void testPrototype() {
     // Arrange
-    int[] mockFactors = {1}; // Mocked return value for the getFactors method
-    when(engine.getFactors(1)).thenReturn(mockFactors);
+    int number = 1;
+    int[] expectedFactors = {1}; // Expected output for the input number
+    when(engine.getFactors(number))
+        .thenReturn(expectedFactors); // Mock the method
 
     // Act
-    String result = prototype(engine);
+    testFactorComputeEngine.prototype(engine); // Call the method under test
 
     // Assert
-    assertEquals("[1]", result); // Change based on expected output
-    verify(engine, times(1)).getFactors(1); // Verify that getFactors was called once
+    verify(engine, times(1)).getFactors(number); // Verify interaction
+    // Additional assertions can be added based on what prototype does
   }
 }
