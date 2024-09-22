@@ -103,14 +103,14 @@ public class TestFactorDataStore {
     }
   }
   // temporary method in order to test the compute engine integration
-// retrieve stored factors
-public int[] testretrieveFactors(int i) {
-  // TODO Auto-generated method stub
-  return null;
-}
-// temporary method in order to test the compute engine integration
-// stores factors from number to be checked
-public void teststoreFactors(int number, int[] factors) {
-  // TODO Auto-generated method stub
-}
+  // retrieve stored factors
+  public int[] testretrieveFactors(int i) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+  // temporary method in order to test the compute engine integration
+  // stores factors from number to be checked
+  public void teststoreFactors(int number, int[] factors) {
+    // TODO Auto-generated method stub
+  }
 }
