@@ -4,7 +4,7 @@ package com.example.factorfinder;
 enum WriteResult { SUCCESS, FAILURE }
 
 // In-Memory Data Store Implementation
-class InMemoryFactorDataStore implements FactorDataStore {
+public class InMemoryFactorDataStore implements FactorDataStore {
   @Override
   public Iterable<Integer> read(InputConfig input) {
     return input.getInputData();
