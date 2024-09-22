@@ -1,3 +1,5 @@
+package com.example.factorfinder;
+
 public class InMemoryOutputConfig implements OutputConfig {
   private final List<String> outputData;
 
