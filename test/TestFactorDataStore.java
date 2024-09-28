@@ -17,9 +17,9 @@ public class TestFactorDataStore {
   public void testFactorDataStoreWithMocks() {
     // Create mocks for FactorDataStore, InputConfig, OutputConfig, WriteResult,
     // etc.
-    FactorDataStore mockFactorDataStore = mock(FactorDataStore.class);
-    InputConfig mockInputConfig = mock(InputConfig.class);
-    OutputConfig mockOutputConfig = mock(OutputConfig.class);
+    FactorDataStoreImpl mockFactorDataStore = mock(FactorDataStoreImpl.class);
+    FileInputConfig mockInputConfig = mock(FileInputConfig.class);
+    FileOutputConfig mockOutputConfig = mock(FileOutputConfig.class);
     WriteResult mockWriteResult = mock(WriteResult.class);
 
     // Mock the behavior of the read method to return a list of integers
@@ -45,17 +45,21 @@ public class TestFactorDataStore {
     // mockOutputConfig and some string as arguments
     verify(mockFactorDataStore, times(5))
         .appendSingleResult(eq(mockOutputConfig), anyList());
+
+    // Optionally assert on the WriteResult to confirm it was successful
+    // Note: You may need to adjust this based on how your WriteResult class is
+    // implemented.
   }
 
   // Modified prototype method to accept mock InputConfig and OutputConfig
-  public void prototype(FactorDataStore apiToCall, InputConfig inputConfig,
-      OutputConfig outputConfig) {
+  public void prototype(FactorDataStoreImpl apiToCall,
+      FileInputConfig inputConfig, FileOutputConfig outputConfig) {
     // Read data from the data store using the input configuration
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
     // Process the loaded data
     for (int i : loadedData) {
-      String result = "" + i; // convert int to string
+      String result = String.valueOf(i); // convert int to string
 
       // Create a list to hold results for appending
       List<String> resultsToAppend =
