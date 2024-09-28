@@ -16,10 +16,11 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
     }
     // Convert ArrayList to array
     //.mapToInt() operation converts each Integer object in the stream to its
-    //corresponding int primitive value. (Integer::intValue) is shortHand for
-    //the intValue() method one EACH Integer Object in the stream. Integer ->
+    // corresponding int primitive value. (Integer::intValue) is shortHand for
+    // the intValue() method one EACH Integer Object in the stream. Integer ->
     // Integer.intValue() is what it should look like when expanded .toArray
-    //collects the elements in the IntStream and returns them as an int[] array.
+    // collects the elements in the IntStream and returns them as an int[]
+    // array.
     return factors.stream().mapToInt(Integer -> Integer.intValue()).toArray();
   }
 
