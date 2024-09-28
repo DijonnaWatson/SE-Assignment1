@@ -2,10 +2,6 @@ package com.example.factorfinder;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import com.example.factorfinder.FactorComputeEngine;
-import com.example.factorfinder.FactorComputeEngineImpl;
-import com.example.FactorDataStore;
-import com.example.FactorDataStoreImpl;
 import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
