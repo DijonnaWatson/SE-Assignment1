@@ -1,6 +1,6 @@
 package com.example.factorfinder;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class InMemoryInputConfig implements InputConfig {
   private final List<Integer> inputData;
@@ -11,7 +11,12 @@ public class InMemoryInputConfig implements InputConfig {
 
   @Override
   public List<Integer> getInputData() {
-    String getFilePath(); // Method to get the file path for input data
     return new ArrayList<>(inputData);
+  }
+
+  @Override
+  public String getFilePath() {
+    // Return the file path as a string
+    return ""; // Replace with the actual file path
   }
 }
