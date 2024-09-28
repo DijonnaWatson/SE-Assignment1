@@ -1,12 +1,14 @@
+package factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FactorComputeEngineImpl implements FactorComputeEngine {
+  String delimiter = ",";
+
   /**
    * Input some number from the user
    * returns array of the factors
    */
-  @Override
   public int[] getFactors(int number) {
     List<Integer> factors = new ArrayList<>();
     for (int i = number; i > 0; i--) {
@@ -24,10 +26,10 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
     return factors.stream().mapToInt(Integer::intValue).toArray();
   }
 
-  @Override
   public void setDelimiter(String delimiter) {
-    this.delimiter = delimiter; // Stores delimiter
+    this.delimiter = delimiter;
   }
+
   public String getFormattedFactors(int number) {
     int[] factors = getFactors(number);
     StringBuilder formattedOutput = new StringBuilder();
