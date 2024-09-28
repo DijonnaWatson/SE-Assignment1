@@ -7,6 +7,7 @@ public class InMemoryOutputConfig implements OutputConfig {
 
   public InMemoryOutputConfig() {
     this.outputData = new ArrayList<>();
+    String getFilePath(); // Method to get the file path for input data
   }
 
   @Override
