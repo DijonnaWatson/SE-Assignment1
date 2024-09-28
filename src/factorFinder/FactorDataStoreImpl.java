@@ -1,6 +1,12 @@
 package com.example.factorfinder;
 
-import java.io.*;
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +15,14 @@ public class FactorDataStoreImpl implements FactorDataStore {
   public List<Integer> read(InputConfig inputConfig) {
     List<Integer> data = new ArrayList<>();
 
-  
+    // Assuming InputConfig has a method to get file path
     String filePath = inputConfig.getFilePath(); // Add method in InputConfig
 
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
       String line;
       while ((line = reader.readLine()) != null) {
         data.add(
-            Integer.parseInt(line.trim())); // each should be an int
+            Integer.parseInt(line.trim())); // Assuming each line is an integer
       }
     } catch (IOException e) {
       System.err.println("Error reading from file: " + e.getMessage());
@@ -28,7 +34,7 @@ public class FactorDataStoreImpl implements FactorDataStore {
   @Override
   public WriteResult appendSingleResult(
       OutputConfig outputConfig, List<String> results) {
-    String filePath = outputConfig.getFilePath(); // also added this in output config (input config has a similar method)
+    String filePath = outputConfig.getFilePath(); // Add method in OutputConfig
 
     try (BufferedWriter writer =
              new BufferedWriter(new FileWriter(filePath, true))) {
@@ -38,9 +44,10 @@ public class FactorDataStoreImpl implements FactorDataStore {
       }
     } catch (IOException e) {
       System.err.println("Error writing to file: " + e.getMessage());
-      return WriteResult.FAILURE; // if writing fails will return failure
+      return WriteResult.FAILURE; // Return failure status if writing fails
     }
 
     return WriteResult.SUCCESS;
   }
 }
+
