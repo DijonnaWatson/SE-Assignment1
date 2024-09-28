@@ -25,6 +25,6 @@ package com.example.factorfinder;
 public interface FactorDataStore {
   Iterable<Integer> read(InputConfig input);
 
-  WriteResult appendSingleResult(OutputConfig output, String result);
+  WriteResult appendSingleResult(OutputConfig output, List<String> list);
 }
 
