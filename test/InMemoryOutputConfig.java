@@ -1,4 +1,6 @@
 package com.example.factorfinder;
+import java.util.List;
+import java.util.ArrayList;
 
 public class InMemoryOutputConfig implements OutputConfig {
   private final List<String> outputData;
