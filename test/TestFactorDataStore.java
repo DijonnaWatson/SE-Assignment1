@@ -45,10 +45,6 @@ public class TestFactorDataStore {
     // mockOutputConfig and some string as arguments
     verify(mockFactorDataStore, times(5))
         .appendSingleResult(eq(mockOutputConfig), anyList());
-
-    // Optionally assert on the WriteResult to confirm it was successful
-    // Note: You may need to adjust this based on how your WriteResult class is
-    // implemented.
   }
 
   // Modified prototype method to accept mock InputConfig and OutputConfig
