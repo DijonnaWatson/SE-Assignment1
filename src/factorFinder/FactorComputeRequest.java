@@ -1,4 +1,7 @@
+
 package com.example.factorfinder;
+import com.example.config.InputConfig;
+import com.example.config.OutputConfig;
 
 public class FactorComputeRequest {
   private static final char DEFAULT_DELIMITER = ';';
