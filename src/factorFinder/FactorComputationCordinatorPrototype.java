@@ -12,7 +12,7 @@ public class FactorComputationCordinatorPrototype {
     //  csv file with integers, a database table with integers, etc - that's
     //  going to be an implementation detail
     InputConfig inputConfig = new InputConfig() {
-      @Override
+      
       public List<Integer> getInputData() {
         // TODO Auto-generated method stub
         return null;
