@@ -21,7 +21,7 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
     // Integer.intValue() is what it should look like when expanded .toArray
     // collects the elements in the IntStream and returns them as an int[]
     // array.
-    return factors.stream().mapToInt(Integer -> Integer.intValue()).toArray();
+    return factors.stream().mapToInt(Integer::intValue).toArray();
   }
 
   @Override
