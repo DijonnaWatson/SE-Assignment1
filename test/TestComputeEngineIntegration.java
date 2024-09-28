@@ -67,6 +67,20 @@ public class TestComputeEngineIntegration {
   private String getOutputString(int[] factors) {
     return "Result: " + Arrays.toString(factors);
   }
+  @Test
+  public void testNegativeNumberFactors() {
+    FactorComputeEngine engine = new FactorComputeEngineImpl();
+    int negativeInput = -15;
+
+    // We expect an empty factor list or an IllegalArgumentException.
+    // Adjust expected behavior based on the design decision.
+    List<Integer> factors = engine.computeFactors(negativeInput);
+
+    // Verify that the result is as expected (e.g., an empty list or an
+    // exception).
+    assertTrue(
+        factors.isEmpty(), "Factors of a negative number should be empty");
+  }
 }
 
 
