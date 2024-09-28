@@ -1,5 +1,4 @@
-package com.fa;
-
+package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class FactorComputationCoordinatorImpl
 
         // Check if writing was successful
         if (writeResult.getStatus() != WriteResult.WriteResultStatus.SUCCESS) {
-          return FactorComputeResult.FAILURE; //If writing fails
+          return FactorComputeResult.FAILURE; // If writing fails
         }
       }
     }
