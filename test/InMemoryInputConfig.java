@@ -1,4 +1,6 @@
 package com.example.factorfinder;
+import java.util.List;
+import java.util.ArrayList;
 
 public class InMemoryInputConfig implements InputConfig {
   private final List<Integer> inputData;
