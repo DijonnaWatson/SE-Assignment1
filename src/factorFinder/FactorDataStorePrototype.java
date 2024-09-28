@@ -1,7 +1,5 @@
 package com.example.factorfinder;
 
-package cookies;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +15,7 @@ public class FactorDataStorePrototype {
     };
 
     // Output configuration can be set up as needed
-    OutputConfig outputConfig =
-        null; // can replace if neccessary
+    OutputConfig outputConfig = null; // can replace if neccessary
 
     // Read data from the data store using the input configuration
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
