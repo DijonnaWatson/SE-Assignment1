@@ -10,7 +10,11 @@ public class FactorComputationCordinatorPrototype {
     //  csv file with integers, a database table with integers, etc - that's
     //  going to be an implementation detail
     InputConfig inputConfig = new InputConfig() {
-
+      @Override
+      public List<Integer> getInputData() {
+        // TODO Auto-generated method stub
+        return null;
+      }
     };
 
     // An example of just using null to indicate 'we haven't decided yet, that's
@@ -49,9 +53,4 @@ public class FactorComputationCordinatorPrototype {
       System.out.println("Status retrieval successful.");
     }
   }
-		
-			
-		
-		
-
 }
