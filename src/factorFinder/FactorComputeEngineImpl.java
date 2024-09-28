@@ -26,6 +26,17 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
 
   @Override
   public void setDelimiter(String delimiter) {
-    // TODO Auto-generated method stub
+    this.delimiter = delimiter; // Stores delimiter
+  }
+  public String getFormattedFactors(int number) {
+    int[] factors = getFactors(number);
+    StringBuilder formattedOutput = new StringBuilder();
+    for (int i = 0; i < factors.length; i++) {
+      formattedOutput.append(factors[i]);
+      if (i < factors.length - 1) {
+        formattedOutput.append(delimiter); // Add delimiter between factors
+      }
+    }
+    return formattedOutput.toString();
   }
 }
