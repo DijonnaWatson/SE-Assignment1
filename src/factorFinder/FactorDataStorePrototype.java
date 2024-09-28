@@ -7,7 +7,7 @@ public class FactorDataStorePrototype {
   public void prototype(FactorDataStore apiToCall) {
     // Define input configuration using an anonymous inner class
     InputConfig inputConfig = new InputConfig() {
-      @Override
+      
       public List<Integer> getInputData() {
         // Placeholder for returning actual input data
         return new ArrayList<>(); // Return an empty list or actual data
