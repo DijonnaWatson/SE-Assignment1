@@ -46,7 +46,7 @@ public class FactorComputationCordinatorPrototype {
     // when you actually start building the implementation, you'll appreciate
     // your Past Self for making life easy for Future Self
     if (result.getStatus().isSuccess()) {
-      System.out.println("Yay!");
+      System.out.println("Status retrieval successful.");
     }
   }
 		
