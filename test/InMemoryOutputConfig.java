@@ -2,16 +2,21 @@ package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryInputConfig implements InputConfig {
-  private final List<Integer> inputData;
+public class InMemoryOutputConfig implements OutputConfig {
+  private final List<String> outputData;
 
-  public InMemoryInputConfig(List<Integer> inputData) {
-    this.inputData = new ArrayList<>(inputData);
+  public InMemoryOutputConfig() {
+    this.outputData = new ArrayList<>();
   }
 
   @Override
-  public List<Integer> getInputData() {
-    return new ArrayList<>(inputData);
+  public void writeOutputData(List<String> data) {
+    outputData.addAll(data);
+  }
+
+  @Override
+  public List<String> getOutputData() {
+    return new ArrayList<>(outputData);
   }
 
   @Override
