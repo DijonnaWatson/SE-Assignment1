@@ -2,8 +2,8 @@ package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FactorComputationCordinatorImpl
-    implements FactorComputationCoordinator {
+public class FactorComputationCoordinatorImpl
+    implements FactorComputationCordinator {
   private final FactorComputeEngine
       computeEngine; // Reference to the compute engine
   private final FactorDataStore dataStore; // Reference to the data store
