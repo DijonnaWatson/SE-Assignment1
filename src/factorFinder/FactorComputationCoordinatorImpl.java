@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FactorComputationCordinatorImpl
-    implements FactorComputationCordinator {
+    implements FactorComputationCoordinator {
   private final FactorComputeEngine
       computeEngine; // Reference to the compute engine
   private final FactorDataStore dataStore; // Reference to the data store
