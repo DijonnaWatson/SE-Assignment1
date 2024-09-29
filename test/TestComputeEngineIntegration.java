@@ -32,7 +32,7 @@ public class TestComputeEngineIntegration {
     // Process each input and collect results
     for (int number : input) {
       // Call the factor compute engine
-      int[] factors = factorComputeEngine.getFactors(number);
+      int[] factors = factorComputeEngine.testGetFactors(number);
 
       // Store the results in the test data store
       dataStore.storeFactors(number, factors);
