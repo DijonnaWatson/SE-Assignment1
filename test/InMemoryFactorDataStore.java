@@ -4,6 +4,8 @@ import java.util.List;
 
 // In-Memory Data Store Implementation
 public class InMemoryFactorDataStore implements FactorDataStore {
+  private List<String> storedResults =
+      new ArrayList<>(); // Declare and initialize storedResults
   @Override
   public Iterable<Integer> read(InputConfig input) {
     return input.getInputData();
