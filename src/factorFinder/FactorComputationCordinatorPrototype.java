@@ -4,34 +4,24 @@ import java.util.List;
 
 public class FactorComputationCordinatorPrototype {
   public void prototype(FactorComputationCordinator apiToCall) {
-    InputConfig inputConfig = new InputConfig() {
-      @Override
-      public List<Integer> getInputData() {
-        return this
-            .getInputData(); // Changed this from null to return the input data.
-                           // It didn't give an error in eclipse and it just
-                           // made more sense than returning null.
-      }
+    // Use concrete implementations of InputConfig and OutputConfig
+    FileInputConfig inputConfig =
+        new FileInputConfig("input.txt"); // just used temporary files
+    FileOutputConfig outputConfig =
+        new FileOutputConfig("output.txt"); // just used temporary files
 
-      @Override
-      public String getFilePath() {
-        return this.getFilePath(); // Similar change as above.
-      }
-    };
-
-   // OutputConfig outputConfig =
-       // new OutputConfig(); // Can replace if necessary just copied what
-                                   // we had for the implementation
-
-
+    // FactorComputeRequest with the specified input, output, and delimiter
     FactorComputeRequest request =
-        new FactorComputeRequest(inputConfig, null, ','); //outputconfig as null until further development
-    
+        new FactorComputeRequest(inputConfig, outputConfig, ',');
 
+    // Call the compute method using the apiToCall instance
     FactorComputeResult result = apiToCall.compute(request);
 
+    // Check if the result indicates success and print a message
     if (result.getStatus().isSuccess()) {
-      System.out.println("Status retrieval successful.");
+      System.out.println("Prototype Status retrieval successful.");
+    } else {
+      System.out.println("Prototype Status retrieval failed.");
     }
   }
 }
