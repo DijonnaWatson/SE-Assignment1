@@ -1,9 +1,8 @@
 package com.example.factorfinder;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.example.FactorComputeResult;
-import java.util.Arrays;
-import java.util.List;
+
+import factorfinder.FactorComputeResult.ComputeResultStatus;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -14,93 +13,48 @@ public class TestFactorComputationCordinator {
     FactorComputationCordinator apiMock =
         Mockito.mock(FactorComputationCordinator.class);
 
-    // Mock the InputConfig, OutputConfig, FactorComputeRequest, and
-    // FactorComputeResult
-    InputConfig inputConfigMock = Mockito.mock(InputConfig.class);
-    OutputConfig outputConfigMock = Mockito.mock(OutputConfig.class);
-
-    // create the request using the mocks
+    // Mock of the Implemented InputConfig and OutputConfig, and
+    // FactorComputeRequest
+    FileInputConfig inputConfigMock = Mockito.mock(FileInputConfig.class);
+    FileOutputConfig outputConfigMock = Mockito.mock(FileOutputConfig.class);
     FactorComputeRequest requestMock =
         new FactorComputeRequest(inputConfigMock, outputConfigMock, ',');
 
     // Mock the result
-    FactorComputeResult resultMock = Mockito.mock(FactorComputeResult.class);
-    Status statusMock = Mockito.mock(Status.class);
-    // Configure the mock behavior - when compute is called, return the mocked
+    FactorComputeResultImpl resultMock =
+        Mockito.mock(FactorComputeResultImpl.class);
+
+    // create a mock compute that uses the mock request and returns a mock
     // result
     when(apiMock.compute(requestMock)).thenReturn(resultMock);
 
-    when(resultMock.getStatus()).thenReturn(statusMock);
+    // create a getStatus to return SUCCESS status when the mock result calls
+    // getStatus()
+    // when i change SUCCESS to FAILURE, it does display the correct output
+    // message for failure
+    ComputeResultStatus successStatus = FactorComputeResult.SUCCESS.getStatus();
+    when(resultMock.getStatus()).thenReturn(successStatus);
 
-    // Define what happens when result.getStatus().isSuccess() is called
-    when(statusMock.isSuccess()).thenReturn(true);
-
-    // Used the mocked API in the test
-    prototype(apiMock);
+    // Pass the mock api and request to the prototype
+    prototype(apiMock, requestMock);
 
     // Verify the interactions
-    verify(apiMock).compute(requestMock); // Verifies that compute was called
-                                          // with the mocked request
+    verify(apiMock).compute(requestMock);
   }
 
-  public void prototype(FactorComputationCordinator apiToCall) {
-    // For now, use an anonymous inner class - other approaches might be to set
-    // this to null, use
-    //  a mock object, of make InputConfig a class rather than an interface. All
-    //  of those accomplish the same goal: the client is going to get input
-    //  information from somewhere, it could be a List<Integer>, a single int, a
-    //  csv file with integers, a database table with integers, etc - that's
-    //  going to be an implementation detail
-    InputConfig inputConfig = new InputConfig() {
-      private List<Integer> inputData =
-          Arrays.asList(1, 2, 3, 4, 5); // placeholder random ints in an array
-
-      @Override
-      public List<Integer> getInputData() {
-        return inputData; // Return the list of integers
-      }
-
-      @Override
-      public String getFilePath() {
-        // Provide a valid implementation
-        return ""; // Return empty string
-      }
-    };
-
-    // An example of just using null to indicate 'we haven't decided yet, that's
-    // for the implementation'
-    OutputConfig outputConfigMock = Mockito.mock(OutputConfig.class);;
-
-    // This is also a case where we could make ComputeRequest an interface and
-    // just use an anonymous inner class - that lets us punt on how the default
-    // delimiter will be specified. On the other hand, an overloaded constructor
-    // isn't that terrible. If you've spotted that this would be an excellent
-    // place to apply the Builder pattern, you're right! This sample code is
-    // written without the design patterns we've started to cover, but feel free
-    // to go back to refactor your own code if you notice that it can be
-    // improved with any of the topics we cover throughout the semester. IRL,
-    // development teams often allocate 10-25% of their time to this sort of
-    // refactoring - it's often called "paying down technical debt"
-    FactorComputeRequest request =
-        new FactorComputeRequest(inputConfig, outputConfigMock, ',');
-
-    // Now we've assembled all the pieces that we know, based on the system
-    // specification description, that we're going to need - an input, output,
-    // and delimiter All that's left is to actually run the computation, and
-    // check that it worked:
+  // I did change the prototype params, idk if that's ok, but the test works now
+  // so..
+  public void prototype(
+      FactorComputationCordinator apiToCall, FactorComputeRequest request) {
+    // Call the compute method using the apiToCall instance with the mocked
+    // request
     FactorComputeResult result = apiToCall.compute(request);
 
-    // Here's an example of using an enum to wrap a boolean success value. This
-    // gives us the option of providing more detailed
-    // failure information later, even if we don't know what it should be now.
-    // Another advantage of having API design be its own deliberate step
-    // is that it sets aside time to really polish the APIs - everything else in
-    // the project is going to depend on this code, so it's worth taking the
-    // extra few minutes to set up an enum, and then give it a wrapped boolean -
-    // when you actually start building the implementation, you'll appreciate
-    // your Past Self for making life easy for Future Self
+    // Check if the result indicates success and print a message
     if (result.getStatus().isSuccess()) {
-      System.out.println("Yay!");
+      System.out.println("Prototype Status retrieval successful.");
+    } else {
+      System.out.println("Prototype Status retrieval failed.");
     }
   }
 }
