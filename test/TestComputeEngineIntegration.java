@@ -43,7 +43,7 @@ public class TestComputeEngineIntegration {
             .collect(Collectors.toList());
 
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(outputConfig, factorsList);
+      dataStore.appendSingleResult(outputConfig, factorsList));
     }
 
     // Validate results for number 10
