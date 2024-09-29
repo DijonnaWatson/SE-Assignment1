@@ -15,58 +15,52 @@ import org.junit.jupiter.api.Test;
 public class TestFactorDataStore {
   @Test
   public void testFactorDataStoreWithMocks() {
-    // Create mocks for FactorDataStore, InputConfig, OutputConfig, WriteResult
+    // creating mocks for FactorDataStore, InputConfig, OutputConfig, WriteResult
     FactorDataStoreImpl mockFactorDataStore = mock(FactorDataStoreImpl.class);
     FileInputConfig mockInputConfig = mock(FileInputConfig.class);
     FileOutputConfig mockOutputConfig = mock(FileOutputConfig.class);
     WriteResult mockWriteResult = mock(WriteResult.class);
 
-    // Mock the behavior of the read method to return a list of integers
     when(mockFactorDataStore.read(mockInputConfig))
         .thenReturn(Arrays.asList(1, 2, 3, 4, 5));
 
-    // Mock the behavior of the appendSingleResult method to return a successful
-    // WriteResult
     when(mockWriteResult.getStatus())
         .thenReturn(WriteResult.WriteResultStatus.SUCCESS);
     when(mockFactorDataStore.appendSingleResult(
              any(OutputConfig.class), anyList()))
         .thenReturn(mockWriteResult);
 
-    // Call the prototype method with mocks
     prototype(mockFactorDataStore, mockInputConfig, mockOutputConfig);
 
-    // Verify that the read method was called once with mockInputConfig as an
-    // argument
+    // verifying that the read method was called once with mockInputConfig
     verify(mockFactorDataStore, times(1)).read(mockInputConfig);
 
-    // Verify that the appendSingleResult was called five times with
-    // mockOutputConfig and some List as arguments
+    // verifying if appendsingleresult method was called correct number of times
     verify(mockFactorDataStore, times(5))
         .appendSingleResult(eq(mockOutputConfig), anyList());
   }
 
-  // Modified prototype method to accept mock InputConfig and OutputConfigs, since we implemented them now
+  
   public void prototype(FactorDataStoreImpl apiToCall,
       FileInputConfig inputConfig, FileOutputConfig outputConfig) {
-    // Read data from the data store using the input configuration
+    // iterable reads data from the input destination
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
-    // Process the loaded data
+    // for each loop that takes loaded data and converts it to a string
     for (int i : loadedData) {
-      String result = String.valueOf(i); // convert int to string
+      String result = String.valueOf(i); 
 
-      // Create a list to hold results for appending
+      // creating string list for results
       List<String> resultsToAppend =
-          List.of(result); // Use List.of for single element
+          List.of(result); 
 
-      // Append the result list to the output configuration
+      // adding result string list to output destination
       WriteResult writeResult =
           apiToCall.appendSingleResult(outputConfig, resultsToAppend);
 
-      // Check the write result status
+      // Check the write result status, if failed print message out to console
       if (writeResult.getStatus() != WriteResult.WriteResultStatus.SUCCESS) {
-        System.out.println("Write result failed."); // Handle failure case
+        System.out.println("Write result failed.");
       }
     }
   }
