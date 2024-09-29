@@ -7,16 +7,21 @@ public class FactorComputationCordinatorPrototype {
     InputConfig inputConfig = new InputConfig() {
       @Override
       public List<Integer> getInputData() {
-        return null; // Return actual input data as needed
+        return this
+            .getInputData; // Changed this from null to return the input data.
+                           // It didn't give an error in eclipse and it just
+                           // made more sense than returning null.
       }
 
       @Override
       public String getFilePath() {
-        return ""; // Return default file path or an empty string
+        return this.getFilePath; // Similar change as above.
       }
     };
 
-    OutputConfig outputConfig = null; // Can replace if necessary
+    OutputConfig outputConfig =
+        request.getOutputConfig(); // Can replace if necessary just copied what
+                                   // we had for the implementation
 
     FactorComputeRequest request =
         new FactorComputeRequest(inputConfig, outputConfig, ',');
