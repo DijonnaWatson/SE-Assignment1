@@ -22,6 +22,8 @@ public class TestComputeEngineIntegration {
     factorComputeEngine = new FactorComputeEngineImpl();
     dataStore =
         new FactorDataStoreImpl(); 
+    
+    outputConfig = new OutputConfig("output.txt");
   }
 
   @Test
@@ -37,7 +39,7 @@ public class TestComputeEngineIntegration {
       String factorsString = java.util.Arrays.toString(factors);
 
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString));
+      dataStore.appendSingleResult(outputConfig,List.of(String.valueOf(number), factorsString));
     }
 
     // Validate results for number 10
