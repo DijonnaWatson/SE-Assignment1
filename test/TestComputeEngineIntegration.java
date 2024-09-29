@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 public class TestComputeEngineIntegration {
   private FactorComputeEngineImpl factorComputeEngine;
   private FactorDataStoreImpl dataStore;
-  private OutputConfig outputConfig;
+  private FileOutputConfig outputConfig;
 
   @BeforeEach
   public void setUp() {
