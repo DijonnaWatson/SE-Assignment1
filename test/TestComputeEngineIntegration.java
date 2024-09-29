@@ -16,7 +16,8 @@ public class TestComputeEngineIntegration {
   private FactorComputeEngineImpl
       factorComputeEngine; 
   private FactorDataStoreImpl dataStore; 
-
+  private OutputConfig outputConfig; 
+  
   @BeforeEach
   public void setUp() {
     // Initialize the actual implementations
