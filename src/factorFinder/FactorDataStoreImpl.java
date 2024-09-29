@@ -13,11 +13,12 @@ import java.util.List;
 public class FactorDataStoreImpl implements FactorDataStore {
   @Override
   public List<Integer> read(InputConfig inputConfig) {
-    List<Integer> data = new ArrayList<>();
+    List<Integer> data = new ArrayList<>();// List to hold the integers read from the file
 
-    // Assuming InputConfig has a method to get file path
-    String filePath = inputConfig.getFilePath(); // Add method in InputConfig
+    // Saving the file path from the input configuration into a variable
+    String filePath = inputConfig.getFilePath(); 
 
+    //try-catch block for reading every line in the file
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
       String line;
       while ((line = reader.readLine()) != null) {
@@ -34,8 +35,9 @@ public class FactorDataStoreImpl implements FactorDataStore {
   @Override
   public WriteResult appendSingleResult(
       OutputConfig outputConfig, List<String> results) {
-    String filePath = outputConfig.getFilePath(); // Add method in OutputConfig
+    String filePath = outputConfig.getFilePath(); //  Saving the file path from the output configuration
 
+    //try-catch block for reading every line in the file
     try (BufferedWriter writer =
              new BufferedWriter(new FileWriter(filePath, true))) {
       for (String result : results) {
