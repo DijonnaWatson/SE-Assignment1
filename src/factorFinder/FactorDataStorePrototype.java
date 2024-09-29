@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FactorDataStorePrototype {
-  // All of this is already implemented
+  //All of this is already impliminted 
   public void prototype(FactorDataStore apiToCall) {
-    FileInputConfig inputConfig =
-        new FileInputConfig("input.txt") // placeholder for input file
-    {
+    FileInputConfig inputConfig = new FileInputConfig("input.txt") //placeholder for input file
+    		{
+      @Override
       public List<Integer> getInputData() {
         return new ArrayList<>(); // Return actual input data as needed
       }
 
+      @Override
       public String getFilePath() {
         return ""; // Return default file path or an empty string
       }
     };
 
-    FileOutputConfig outputConfig = new FileOutputConfig(
-        "output.txt"); // already implimented in the datastore implimintation
-                       //  I stil added the placeholder though
+    FileOutputConfig outputConfig = new FileOutputConfig("output.txt"); //already implimented in the datastore implimintation
+    																	// I stil added the placeholder though
 
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
