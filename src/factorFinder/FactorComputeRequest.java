@@ -10,11 +10,13 @@ public class FactorComputeRequest {
   private final OutputConfig outputConfig;
   private final char delimiter;
 
+  //Constructor for when the user used the default delimiter
   public FactorComputeRequest(
       InputConfig inputConfig, OutputConfig outputConfig) {
     this(inputConfig, outputConfig, DEFAULT_DELIMITER); // default delimiter: ;
   }
 
+  //Constructor for when the user used their own delimiter
   public FactorComputeRequest(
       InputConfig inputConfig, OutputConfig outputConfig, char delimiter) {
     this.inputConfig = inputConfig;
