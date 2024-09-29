@@ -3,29 +3,28 @@ package com.example.factorfinder;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.util.stream.IntStream;
+
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
 import com.example.factorfinder.FileOutputConfig;
-import java.util.Arrays; 
-import java.util.List; 
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestComputeEngineIntegration {
-  private FactorComputeEngineImpl
-      factorComputeEngine; 
-  private FactorDataStoreImpl dataStore; 
-  private OutputConfig outputConfig; 
-  
+  private FactorComputeEngineImpl factorComputeEngine;
+  private FactorDataStoreImpl dataStore;
+  private OutputConfig outputConfig;
+
   @BeforeEach
   public void setUp() {
     // Initialize the actual implementations
     factorComputeEngine = new FactorComputeEngineImpl();
-    dataStore =
-        new FactorDataStoreImpl(); 
-    
+    dataStore = new FactorDataStoreImpl();
+
     outputConfig = new FileOutputConfig("output.txt");
   }
 
@@ -39,10 +38,10 @@ public class TestComputeEngineIntegration {
       // Call the factor compute engine
       int[] factors = factorComputeEngine.getFactors(number);
 
-       //converting factors into string list
-       List<String> factorsList = IntStream.of(factors)
-            .mapToObj(String::valueOf)
-            .collect(Collectors.toList());
+      // converting factors into string list
+      List<String> factorsList = IntStream.of(factors)
+                                     .mapToObj(String::valueOf)
+                                     .collect(Collectors.toList());
 
       // Directly store factors in the data store for validation
       dataStore.appendSingleResult(outputConfig, factorsList);
@@ -88,13 +87,10 @@ public class TestComputeEngineIntegration {
     int negativeInput = -15;
 
     // We expect an empty factor list or an exception.
-    int[] factors =
-        engine.getFactors(negativeInput); 
+    int[] factors = engine.getFactors(negativeInput);
 
     // Verify that we get an empty list
     assertTrue(
         factors.length == 0, "Factors of a negative number should be empty");
   }
 }
-
-
