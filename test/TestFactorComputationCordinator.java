@@ -67,7 +67,7 @@ public class TestFactorComputationCordinator {
 
     // An example of just using null to indicate 'we haven't decided yet, that's
     // for the implementation'
-    OutputConfig outputConfig = null;
+    OutputConfig outputConfigMock = Mockito.mock(OutputConfig.class);;
 
     // This is also a case where we could make ComputeRequest an interface and
     // just use an anonymous inner class - that lets us punt on how the default
