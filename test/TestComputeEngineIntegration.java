@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
 import java.util.Arrays; // Import Arrays for array manipulation
-import java.util.List;   // Import List for list manipulation
+import java.util.List; // Import List for list manipulation
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,22 +34,23 @@ public class TestComputeEngineIntegration {
       // Call the factor compute engine
       int[] factors = factorComputeEngine.getFactors(number);
 
+      String factorsString = java.util.Arrays.toString(factors);
+
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(null,
-          List.of(number, factors)); // Adjust according to your implementation
+      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString); // Adjust according to your implementation
     }
 
     // Validate results for number 10
     int[] expectedFactorsFor10 = {1, 2, 5, 10}; // Expected factors for 10
-    int[] actualFactorsFor10 =
-        factorComputeEngine.getFactors(10); // Ensure your data store has this method
+    int[] actualFactorsFor10 = factorComputeEngine.getFactors(
+        10); // Ensure your data store has this method
     assertArrayEquals(expectedFactorsFor10, actualFactorsFor10,
         "Factors for 10 do not match");
 
     // Validate results for number 25
     int[] expectedFactorsFor25 = {1, 5, 25}; // Expected factors for 25
-    int[] actualFactorsFor25 =
-        factorComputeEngine.getFactors(25); // Ensure your data store has this method
+    int[] actualFactorsFor25 = factorComputeEngine.getFactors(
+        25); // Ensure your data store has this method
     assertArrayEquals(expectedFactorsFor25, actualFactorsFor25,
         "Factors for 25 do not match");
 
