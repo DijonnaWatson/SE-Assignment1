@@ -39,8 +39,8 @@ public class TestComputeEngineIntegration {
       int[] factors = factorComputeEngine.getFactors(number);
 
        //converting factors into string list
-       List<String> factorsList = Arrays.stream(factors)
-            .map(String::valueOf)
+       List<String> factorsList = IntStream.of(factors)
+            .mapToObj(String::valueOf)
             .collect(Collectors.toList());
 
       // Directly store factors in the data store for validation
