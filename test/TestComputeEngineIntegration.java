@@ -93,4 +93,21 @@ public class TestComputeEngineIntegration {
     assertTrue(
         factors.length == 0, "Factors of a negative number should be empty");
   }
+  @Test
+  public void testPrimeNumberFactors() {
+    int primeNumber = 13;
+    int[] expectedFactors = {1, 13};
+    int[] actualFactors = factorComputeEngine.getFactors(primeNumber);
+
+    // Validate that the factors of 13 are {1, 13}
+    assertArrayEquals(expectedFactors, actualFactors,
+        "Factors for prime number do not match");
+  }
+  @Test
+  public void testZeroInputFactors() {
+    int[] factors = factorComputeEngine.getFactors(0);
+
+    // Verify that we get an empty list for 0
+    assertTrue(factors.length == 0, "Factors for 0 should be empty");
+  }
 }
