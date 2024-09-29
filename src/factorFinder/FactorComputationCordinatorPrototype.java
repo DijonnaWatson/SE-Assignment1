@@ -8,14 +8,14 @@ public class FactorComputationCordinatorPrototype {
       @Override
       public List<Integer> getInputData() {
         return this
-            .getInputData; // Changed this from null to return the input data.
+            .getInputData(); // Changed this from null to return the input data.
                            // It didn't give an error in eclipse and it just
                            // made more sense than returning null.
       }
 
       @Override
       public String getFilePath() {
-        return this.getFilePath; // Similar change as above.
+        return this.getFilePath(); // Similar change as above.
       }
     };
 
