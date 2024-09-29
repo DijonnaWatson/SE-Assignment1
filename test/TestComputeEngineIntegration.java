@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestComputeEngineIntegration {
+public class TestComputeEngineIntegration implements FactorComputeEngineImpl {
   private FactorComputeEngine factorComputeEngine;
   private TestFactorDataStore dataStore;
 
