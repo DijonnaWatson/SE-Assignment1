@@ -19,8 +19,7 @@ public class FileOutputConfig implements OutputConfig {
 
   @Override
   public List<String> getOutputData() {
-    // Implement logic to return data read from the output file if necessary
-    return null; // Placeholder for actual implementation
+    return null; // TODO put the implementation here 
   }
 
   @Override
