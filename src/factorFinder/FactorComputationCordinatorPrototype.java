@@ -19,12 +19,13 @@ public class FactorComputationCordinatorPrototype {
       }
     };
 
-    OutputConfig outputConfig =
-        request.getOutputConfig(); // Can replace if necessary just copied what
-                                   // we had for the implementation
 
     FactorComputeRequest request =
         new FactorComputeRequest(inputConfig, outputConfig, ',');
+    
+    OutputConfig outputConfig =
+        request.getOutputConfig(); // Can replace if necessary just copied what
+                                   // we had for the implementation
 
     FactorComputeResult result = apiToCall.compute(request);
 
