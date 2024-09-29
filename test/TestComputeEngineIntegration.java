@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
-import com.example.factorfinder.FileOutputConfig
+import com.example.factorfinder.FileOutputConfig;
 import java.util.Arrays; 
 import java.util.List; 
 import org.junit.jupiter.api.BeforeEach;
