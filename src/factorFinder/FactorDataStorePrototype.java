@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FactorDataStorePrototype {
-  //All of this is already impliminted 
+  // All of this is already impliminted
   public void prototype(FactorDataStore apiToCall) {
-    FileInputConfig inputConfig = new FileInputConfig("input.txt") //placeholder for input file
-    		{
+    // placeholder for input file
+    FileInputConfig inputConfig = new FileInputConfig("input.txt") {
       @Override
       public List<Integer> getInputData() {
         return new ArrayList<>(); // Return actual input data as needed
@@ -19,8 +19,9 @@ public class FactorDataStorePrototype {
       }
     };
 
-    FileOutputConfig outputConfig = new FileOutputConfig("output.txt"); //already implimented in the datastore implimintation
-    																	// I stil added the placeholder though
+    FileOutputConfig outputConfig = new FileOutputConfig(
+        "output.txt"); // already implimented in the datastore implimintation
+    // I stil added the placeholder though
 
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
