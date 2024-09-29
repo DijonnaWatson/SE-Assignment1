@@ -6,22 +6,22 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
-import java.util.Arrays; // Import Arrays for array manipulation
-import java.util.List; // Import List for list manipulation
+import java.util.Arrays; 
+import java.util.List; 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestComputeEngineIntegration {
   private FactorComputeEngineImpl
-      factorComputeEngine; // Changed to use implementation directly
-  private FactorDataStoreImpl dataStore; // Use your actual implementation
+      factorComputeEngine; 
+  private FactorDataStoreImpl dataStore; 
 
   @BeforeEach
   public void setUp() {
     // Initialize the actual implementations
     factorComputeEngine = new FactorComputeEngineImpl();
     dataStore =
-        new FactorDataStoreImpl(); // Ensure you have this implementation
+        new FactorDataStoreImpl(); 
   }
 
   @Test
@@ -37,7 +37,7 @@ public class TestComputeEngineIntegration {
       String factorsString = java.util.Arrays.toString(factors);
 
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString)); // Adjust according to your implementation
+      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString));
     }
 
     // Validate results for number 10
@@ -80,11 +80,10 @@ public class TestComputeEngineIntegration {
     int negativeInput = -15;
 
     // We expect an empty factor list or an exception.
-    // Adjust expected behavior based on the design decision.
     int[] factors =
-        engine.getFactors(negativeInput); // Use your method directly
+        engine.getFactors(negativeInput); 
 
-    // Verify that the result is as expected (e.g., an empty array)
+    // Verify that we get an empty list
     assertTrue(
         factors.length == 0, "Factors of a negative number should be empty");
   }
