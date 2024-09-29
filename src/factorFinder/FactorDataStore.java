@@ -25,8 +25,8 @@ import java.util.List;
  */
 
 public interface FactorDataStore {
-  Iterable<Integer> read(InputConfig input);
+  Iterable<Integer> read(FileInputConfig input);
 
-  WriteResult appendSingleResult(OutputConfig output, List<String> list);
+  WriteResult appendSingleResult( FileOutputConfig output, List<String> list);
+
 }
-
