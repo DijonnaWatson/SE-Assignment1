@@ -12,9 +12,9 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
   public int[] getFactors(int number) {
     List<Integer> factors = new ArrayList<>();
     for (int i = 1; i <= number; i++) { // Start from 1 and go to number
-        if (number % i == 0) {
-            factors.add(i); // Add factor to list
-        }
+      if (number % i == 0) {
+        factors.add(i); // Add factor to list
+      }
     }
     // Convert ArrayList to array
     //.mapToInt() operation converts each Integer object in the stream to its
