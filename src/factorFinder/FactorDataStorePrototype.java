@@ -9,20 +9,18 @@ public class FactorDataStorePrototype {
     FileInputConfig inputConfig =
         new FileInputConfig("input.txt") // placeholder for input file
     {
-      @Override
       public List<Integer> getInputData() {
         return new ArrayList<>(); // Return actual input data as needed
       }
 
-      @Override
       public String getFilePath() {
-        return ""; // Return the default file path or an empty string
+        return ""; // Return default file path or an empty string
       }
     };
 
     FileOutputConfig outputConfig = new FileOutputConfig(
-        "output.txt"); // already implemented in the datastore implementation
-                       //  I still added the placeholder though
+        "output.txt"); // already implimented in the datastore implimintation
+                       //  I stil added the placeholder though
 
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
