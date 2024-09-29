@@ -37,7 +37,7 @@ public class TestComputeEngineIntegration {
       String factorsString = java.util.Arrays.toString(factors);
 
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString); // Adjust according to your implementation
+      dataStore.appendSingleResult(null,List.of(String.valueOf(number), factorsString)); // Adjust according to your implementation
     }
 
     // Validate results for number 10
