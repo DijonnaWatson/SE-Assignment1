@@ -1,4 +1,4 @@
-package factorfinder;
+package com.example.factorfinder;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
