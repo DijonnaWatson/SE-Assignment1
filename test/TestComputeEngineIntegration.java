@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestComputeEngineIntegration {
-  private FactorComputeEngine factorComputeEngine;
+  private TestFactorComputeEngine factorComputeEngine;
   private TestFactorDataStore dataStore;
 
   @BeforeEach
