@@ -3,8 +3,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import com.example.factorfinder.FactorComputeResult.ComputeResultStatus;
 import com.example.factorfinder.FactorComputeResult;
-import com.example.factorfinder.ComputeResultStatus;
+import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FactorComputationCordinator;
+
 
 public class TestFactorComputationCordinator {
   @Test
