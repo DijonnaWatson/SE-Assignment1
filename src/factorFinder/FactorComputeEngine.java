@@ -30,12 +30,11 @@ public interface FactorComputeEngine {
    * @return An array of factors of the given number.
    */
   int[] getFactors(int number);
-
+  
   /**
    * Sets the delimiter to be used in the output.
    *
    * @param delimiter The delimiter to use between factors.
    */
   void setDelimiter(String delimiter);
-  // String compute(int value);
 }

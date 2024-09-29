@@ -1,3 +1,7 @@
+package com.example.factorfinder;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -6,36 +10,76 @@ import org.junit.jupiter.api.Test;
 
 class TestFactorComputeEngine {
   @Test
-  public void testFactorComputeEngine() {
-    // Create a mock of FactorComputeEngine
-    FactorComputeEngine mockEngine = mock(FactorComputeEngine.class);
+  public void testGetFactors() {
 
-    // Define the behavior of the mock for the getFactors method
+    FactorComputeEngineImpl mockEngine = mock(FactorComputeEngineImpl.class);
+
+    // defining mock behaivor for getfactors method
     when(mockEngine.getFactors(10)).thenReturn(new int[] {1, 2, 5, 10});
 
-    // Call the prototype method
+    
+    int[] factors = mockEngine.getFactors(10);
+
+    // verifying if getfactors method was called
+    verify(mockEngine).getFactors(10);
+
+    // checking returned results vs expected
+    assertArrayEquals(new int[] {1, 2, 5, 10}, factors);
+  }
+
+  @Test
+  public void testSetDelimiter() {
+
+    FactorComputeEngineImpl mockEngine = mock(FactorComputeEngineImpl.class);
+
+    // calling setdelimiter method
+    mockEngine.setDelimiter(";");
+
+    // verifying setdelimiter method was called with ";"
+    verify(mockEngine).setDelimiter(";");
+  }
+
+  @Test
+  public void testGetFormattedFactors() {
+
+    FactorComputeEngineImpl mockEngine = mock(FactorComputeEngineImpl.class);
+
+    // defining expected result of getformattedfactors
+    when(mockEngine.getFormattedFactors(10)).thenReturn("1,2,5,10");
+
+
+    String formattedFactors = mockEngine.getFormattedFactors(10);
+
+    // verifying that getformatted factors was called
+    verify(mockEngine).getFormattedFactors(10);
+
+    // checking if the expected value and result value match
+    assertEquals("1,2,5,10", formattedFactors);
+  }
+
+  @Test
+  public void testPrototype() {
+
+    FactorComputeEngineImpl mockEngine = mock(FactorComputeEngineImpl.class);
+
+    // defining mock behaivor for getfactors method
+    when(mockEngine.getFactors(10)).thenReturn(new int[] {1, 2, 5, 10});
+
+    // call the prototype
     prototype(mockEngine);
 
-    // Verify that getFactors(10) was called
     verify(mockEngine).getFactors(10);
   }
 
-  public void prototype(FactorComputeEngine engine) {
-    // This prototype ends up being the simplest, even though the implementation
-    // of it is likely to be the most complex of the components. We know the
-    // input here is going to be an int, so the parameters are nice and simple,
-    // and I've chosen to represent the output as a String - that's a
-    // somewhat-opinionated result type, and it would be completely fine to have
-    // a more general wrapper. By choosing a String, I'm forcing the
-    // ComputeEngine component to handle all result formatting as well as the
-    // actual computation - since these two things are going to be very tightly
-    // coupled as far as the implementation (how to format a result really
-    // depends on what that result represents), this is reasonable to put in one
-    // component, but keeping things more general is also fine. API Design is
-    // much more art than science!
-    int[] result = engine.getFactors(10); // Testing the mockEngine
+  public void prototype(FactorComputeEngineImpl engine) {
+    // testing getfactors method
+    int[] result = engine.getFactors(10);
 
-    // The mock worked since it printed the correct the array of factors
-    System.out.println("Result: " + java.util.Arrays.toString(result));
+    
+    System.out.println("Factors of 10: " + java.util.Arrays.toString(result));
+
+    // verifying if mock behaivor is correct
+    assertArrayEquals(new int[] {1, 2, 5, 10},
+        result); 
   }
 }

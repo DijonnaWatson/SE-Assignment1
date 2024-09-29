@@ -1,5 +1,7 @@
 package com.example.factorfinder;
 
+import java.util.List;
+
 /**
  * API 2: Process-level API between the compute engine and the layer that knows
  * how to read/write user data.
@@ -23,8 +25,8 @@ package com.example.factorfinder;
  */
 
 public interface FactorDataStore {
-  Iterable<Integer> read(InputConfig input);
+  Iterable<Integer> read(FileInputConfig input);
 
-  WriteResult appendSingleResult(OutputConfig output, String result);
+  WriteResult appendSingleResult( FileOutputConfig output, List<String> list);
+
 }
-

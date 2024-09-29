@@ -1,19 +1,24 @@
+
 package com.example.factorfinder;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class FactorComputeRequest {
   private static final char DEFAULT_DELIMITER = ';';
 
-  private final InputConfig inputConfig;
-  private final OutputConfig outputConfig;
+  private final FileInputConfig inputConfig;
+  private final FileOutputConfig outputConfig;
   private final char delimiter;
 
+  // Constructor for when the user used the default delimiter
   public FactorComputeRequest(
-      InputConfig inputConfig, OutputConfig outputConfig) {
+      FileInputConfig inputConfig, FileOutputConfig outputConfig) {
     this(inputConfig, outputConfig, DEFAULT_DELIMITER); // default delimiter: ;
   }
 
-  public FactorComputeRequest(
-      InputConfig inputConfig, OutputConfig outputConfig, char delimiter) {
+  // Constructor for when the user used their own delimiter
+  public FactorComputeRequest(FileInputConfig inputConfig,
+      FileOutputConfig outputConfig, char delimiter) {
     this.inputConfig = inputConfig;
     this.outputConfig = outputConfig;
     this.delimiter = delimiter;
@@ -23,11 +28,11 @@ public class FactorComputeRequest {
     return delimiter;
   }
 
-  public InputConfig getInputConfig() {
+  public FileInputConfig getInputConfig() {
     return inputConfig;
   }
 
-  public OutputConfig getOutputConfig() {
+  public FileOutputConfig getOutputConfig() {
     return outputConfig;
   }
 }
