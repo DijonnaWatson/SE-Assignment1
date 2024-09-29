@@ -9,7 +9,7 @@ public class FactorComputationCoordinatorImpl
   private final FactorDataStore dataStore; // Reference to the data store
 
   // Constructor to initialize the compute engine and data store
-  public FactorComputationCordinatorImpl(
+  public FactorComputationCoordinatorImpl(
       FactorComputeEngine computeEngine, FactorDataStore dataStore) {
     this.computeEngine = computeEngine;
     this.dataStore = dataStore;
