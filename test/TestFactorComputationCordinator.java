@@ -21,8 +21,8 @@ public class TestFactorComputationCordinator {
         new FactorComputeRequest(inputConfigMock, outputConfigMock, ',');
 
     // Mock the result
-    FactorComputeResultImpl resultMock =
-        Mockito.mock(FactorComputeResultImpl.class);
+    FactorComputeResult resultMock =
+        Mockito.mock(FactorComputeResult.class);
 
     // create a mock compute that uses the mock request and returns a mock
     // result
