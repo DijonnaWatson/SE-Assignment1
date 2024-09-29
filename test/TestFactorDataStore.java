@@ -15,8 +15,7 @@ import org.junit.jupiter.api.Test;
 public class TestFactorDataStore {
   @Test
   public void testFactorDataStoreWithMocks() {
-    // Create mocks for FactorDataStore, InputConfig, OutputConfig, WriteResult,
-    // etc.
+    // Create mocks for FactorDataStore, InputConfig, OutputConfig, WriteResult
     FactorDataStoreImpl mockFactorDataStore = mock(FactorDataStoreImpl.class);
     FileInputConfig mockInputConfig = mock(FileInputConfig.class);
     FileOutputConfig mockOutputConfig = mock(FileOutputConfig.class);
@@ -42,12 +41,12 @@ public class TestFactorDataStore {
     verify(mockFactorDataStore, times(1)).read(mockInputConfig);
 
     // Verify that the appendSingleResult was called five times with
-    // mockOutputConfig and some string as arguments
+    // mockOutputConfig and some List as arguments
     verify(mockFactorDataStore, times(5))
         .appendSingleResult(eq(mockOutputConfig), anyList());
   }
 
-  // Modified prototype method to accept mock InputConfig and OutputConfig
+  // Modified prototype method to accept mock InputConfig and OutputConfigs, since we implemented them now
   public void prototype(FactorDataStoreImpl apiToCall,
       FileInputConfig inputConfig, FileOutputConfig outputConfig) {
     // Read data from the data store using the input configuration
