@@ -1,7 +1,5 @@
 package com.example.factorfinder;
 
-
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -12,13 +10,14 @@ import java.util.List;
 
 public class FactorDataStoreImpl implements FactorDataStore {
   @Override
-  public List<Integer> read(InputConfig inputConfig) {
-    List<Integer> data = new ArrayList<>();// List to hold the integers read from the file
+  public List<Integer> read(FileInputConfig inputConfig) {
+    List<Integer> data =
+        new ArrayList<>(); // List to hold the integers read from the file
 
     // Saving the file path from the input configuration into a variable
-    String filePath = inputConfig.getFilePath(); 
+    String filePath = inputConfig.getFilePath();
 
-    //try-catch block for reading every line in the file
+    // try-catch block for reading every line in the file
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
       String line;
       while ((line = reader.readLine()) != null) {
@@ -34,10 +33,11 @@ public class FactorDataStoreImpl implements FactorDataStore {
 
   @Override
   public WriteResult appendSingleResult(
-      OutputConfig outputConfig, List<String> results) {
-    String filePath = outputConfig.getFilePath(); //  Saving the file path from the output configuration
+      FileOutputConfig outputConfig, List<String> results) {
+    String filePath = outputConfig.getFilePath(); //  Saving the file path from
+                                                  //  the output configuration
 
-    //try-catch block for reading every line in the file
+    // try-catch block for reading every line in the file
     try (BufferedWriter writer =
              new BufferedWriter(new FileWriter(filePath, true))) {
       for (String result : results) {
@@ -52,4 +52,3 @@ public class FactorDataStoreImpl implements FactorDataStore {
     return WriteResult.SUCCESS;
   }
 }
-
