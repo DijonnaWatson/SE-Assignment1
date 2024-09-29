@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
+import java.util.Arrays; // Import Arrays for array manipulation
+import java.util.List;   // Import List for list manipulation
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
