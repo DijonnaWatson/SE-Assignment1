@@ -48,10 +48,10 @@ public class TestFactorComputationCordinator {
     //  csv file with integers, a database table with integers, etc - that's
     //  going to be an implementation detail
     InputConfig inputConfig = new InputConfig() {
-      @Override
+     
       public String getFilePath() {
         // Provide a valid implementation
-        return "path/to/input/file";
+        return ""; //return empty string
       }
     };
 
