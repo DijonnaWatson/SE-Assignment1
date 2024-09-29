@@ -14,10 +14,6 @@ public class InMemoryOutputConfig implements OutputConfig {
     outputData.addAll(data);
   }
 
-  @Override
-  public List<String> getOutputData() {
-    return new ArrayList<>(outputData);
-  }
 
   @Override
   public String getFilePath() {
