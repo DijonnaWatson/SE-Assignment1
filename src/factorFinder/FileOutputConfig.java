@@ -18,11 +18,6 @@ public class FileOutputConfig implements OutputConfig {
   }
 
   @Override
-  public List<String> getOutputData() {
-    return null; // TODO put the implementation here 
-  }
-
-  @Override
   public String getFilePath() {
     return filePath;
   }
