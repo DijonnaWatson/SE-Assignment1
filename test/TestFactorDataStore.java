@@ -27,7 +27,7 @@ public class TestFactorDataStore {
     when(mockWriteResult.getStatus())
         .thenReturn(WriteResult.WriteResultStatus.SUCCESS);
     when(mockFactorDataStore.appendSingleResult(
-             any(OutputConfig.class), anyList()))
+             any(FileOutputConfig.class), anyList()))
         .thenReturn(mockWriteResult);
 
     prototype(mockFactorDataStore, mockInputConfig, mockOutputConfig);
