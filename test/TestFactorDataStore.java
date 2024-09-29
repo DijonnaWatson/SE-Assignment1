@@ -1,4 +1,4 @@
-package factorfinder;
+package com.example.factorfinder;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
