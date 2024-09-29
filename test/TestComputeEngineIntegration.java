@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileOutputConfig
 import java.util.Arrays; 
 import java.util.List; 
 import org.junit.jupiter.api.BeforeEach;
@@ -23,7 +24,7 @@ public class TestComputeEngineIntegration {
     dataStore =
         new FactorDataStoreImpl(); 
     
-    outputConfig = new OutputConfig("output.txt");
+    outputConfig = new FileOutputConfig("output.txt");
   }
 
   @Test
@@ -36,10 +37,13 @@ public class TestComputeEngineIntegration {
       // Call the factor compute engine
       int[] factors = factorComputeEngine.getFactors(number);
 
-      String factorsString = java.util.Arrays.toString(factors);
+       //converting factors into string list
+       List<String> factorsList = Arrays.stream(factors)
+            .map(String::valueOf)
+            .collect(Collectors.toList());
 
       // Directly store factors in the data store for validation
-      dataStore.appendSingleResult(outputConfig,List.of(String.valueOf(number), factorsString));
+      dataStore.appendSingleResult(outputConfig, factorsList));
     }
 
     // Validate results for number 10
