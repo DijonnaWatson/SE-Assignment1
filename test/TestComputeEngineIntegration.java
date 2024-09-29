@@ -1,12 +1,13 @@
 package com.example.factorfinder;
 
+import com.example.factorfinder.FactorComputeEngineImpl;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestComputeEngineIntegration implements FactorComputeEngineImpl {
+public class TestComputeEngineIntegration {
   private FactorComputeEngine factorComputeEngine;
   private TestFactorDataStore dataStore;
 
