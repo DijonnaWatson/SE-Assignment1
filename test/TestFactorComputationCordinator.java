@@ -1,9 +1,10 @@
 package com.example.factorfinder;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.example.factorfinder.FactorComputeResult;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import com.example.factorfinder.FactorComputeResultImpl;
+import com.example.factorfinder.ComputeResultStatus;
 
 public class TestFactorComputationCordinator {
   @Test
