@@ -47,13 +47,20 @@ public class TestFactorComputationCordinator {
     //  information from somewhere, it could be a List<Integer>, a single int, a
     //  csv file with integers, a database table with integers, etc - that's
     //  going to be an implementation detail
-    InputConfig inputConfig = new InputConfig() {
-      List<Integer> getInputData();
-      public String getFilePath() {
+   InputConfig inputConfig = new InputConfig() {
+    private List<Integer> inputData = Arrays.asList(1, 2, 3, 4, 5); // placeholder random ints in an array
+
+    @Override
+    public List<Integer> getInputData() {
+        return inputData; // Return the list of integers
+    }
+
+    @Override
+    public String getFilePath() {
         // Provide a valid implementation
-        return ""; // return empty string
-      }
-    };
+        return ""; // Return empty string
+    }
+};
 
     // An example of just using null to indicate 'we haven't decided yet, that's
     // for the implementation'
