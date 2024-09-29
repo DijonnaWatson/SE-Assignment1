@@ -25,13 +25,15 @@ public class TestFactorComputationCordinator {
 
     // Mock the result
     FactorComputeResult resultMock = Mockito.mock(FactorComputeResult.class);
-
+    Status statusMock = Mockito.mock(Status.class);
     // Configure the mock behavior - when compute is called, return the mocked
     // result
     when(apiMock.compute(requestMock)).thenReturn(resultMock);
 
+    when(resultMock.getStatus()).thenReturn(statusMock);
+
     // Define what happens when result.getStatus().isSuccess() is called
-    when(resultMock.getStatus().isSuccess()).thenReturn(true);
+    when(statusMock.isSuccess()).thenReturn(true);
 
     // Used the mocked API in the test
     prototype(apiMock);
