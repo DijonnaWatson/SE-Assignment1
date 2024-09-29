@@ -2,7 +2,7 @@ package com.example.factorfinder;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import java.util.List;
-import java.util.Arrays
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
