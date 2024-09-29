@@ -17,51 +17,50 @@ public class FactorComputationCoordinatorImpl
 
   @Override
   public FactorComputeResult compute(FactorComputeRequest request) {
-    // Step 1: Receive request from the user to start computation
+    // Correlates to step 2a. Here we receive requests from the user to start the computation
     InputConfig inputConfig =
-        request.getInputConfig(); // Get the input configuration
+        request.getInputConfig(); 
 
-    // Step 2: Request that the data storage component read integers
+    // Correlates to step 2b. Request that the data storage component read integers from specified location
     List<Integer> inputData = (List<Integer>) dataStore.read(
-        inputConfig); // Read input data using data store
+        inputConfig); 
 
     if (inputData == null || inputData.isEmpty()) {
       return FactorComputeResult
-          .FAILURE; // Handle case where no data is available
+          .FAILURE; // If statement handles case where no data is available
     }
 
-    // Step 3: Pass the integers to the compute component
+    // Correlates to step 2c. Passes the integers to the compute component
     for (Integer number : inputData) {
       int[] factors =
-          computeEngine.getFactors(number); // Compute factors for each integer
+          computeEngine.getFactors(number); // Compute the passed integer's factors
 
-      // Step 4: Request that the data storage component write the results to
-      // the output
+      // Correlates to step 2d. Request that the data storage component write whatever result to the output
       OutputConfig outputConfig =
-          request.getOutputConfig(); // Get output configuration
+          request.getOutputConfig(); 
       if (outputConfig != null) {
-        // Format the factors and write them to the output using data store
+    
         WriteResult writeResult = dataStore.appendSingleResult(outputConfig,
             formatFactors(factors)); // Write formatted factors to output
 
-        // Check if writing was successful
+        
         if (writeResult.getStatus() != WriteResult.WriteResultStatus.SUCCESS) {
-          return FactorComputeResult.FAILURE; // If writing fails
+          return FactorComputeResult.FAILURE; // Handles if writing fails
         }
       }
     }
 
     return FactorComputeResult
-        .SUCCESS; // Indicate that the computation was successful
+        .SUCCESS; 
   }
 
-  // Method to assist with formatting
+  // Need this method to help with formatting (things were breaking in eclipse without it so i figured we just keep it)
   private List<String> formatFactors(int[] factors) {
     List<String> formattedFactors = new ArrayList<>();
     for (int factor : factors) {
       formattedFactors.add(
-          String.valueOf(factor)); // Convert each factor to String
+          String.valueOf(factor)); 
     }
-    return formattedFactors; // Return the formatted list of factors
+    return formattedFactors; 
   }
 }
