@@ -80,7 +80,7 @@ public class TestFactorComputationCordinator {
     // development teams often allocate 10-25% of their time to this sort of
     // refactoring - it's often called "paying down technical debt"
     FactorComputeRequest request =
-        new FactorComputeRequest(inputConfigMock, outputConfigMock, ',');
+        new FactorComputeRequest(inputConfig, outputConfigMock, ',');
 
     // Now we've assembled all the pieces that we know, based on the system
     // specification description, that we're going to need - an input, output,
