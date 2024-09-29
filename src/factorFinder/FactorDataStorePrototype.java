@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FactorDataStorePrototype {
+  //All of this is already impliminted 
   public void prototype(FactorDataStore apiToCall) {
     InputConfig inputConfig = new InputConfig() {
       @Override
@@ -17,7 +18,7 @@ public class FactorDataStorePrototype {
       }
     };
 
-    OutputConfig outputConfig = null; // Can replace if necessary
+    OutputConfig outputConfig = null; //already implimented in the datastore implimintation
 
     Iterable<Integer> loadedData = apiToCall.read(inputConfig);
 
