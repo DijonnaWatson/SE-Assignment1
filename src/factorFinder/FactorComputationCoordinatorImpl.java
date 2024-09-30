@@ -3,7 +3,7 @@ import java.util.List;
 // TODO:update on github
 // I fixed this so that it actually used the implementation of the
 // factorComputeEngine and DataSToreImpl
-public class FactorComputationCordinatorImpl
+public class FactorComputationCoordinatorImpl
     implements FactorComputationCordinator {
   private final FactorComputeEngineImpl
       computeEngine; // Reference to the compute engine
