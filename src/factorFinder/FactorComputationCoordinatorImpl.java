@@ -54,7 +54,8 @@ public class FactorComputationCoordinatorImpl
 
       return FactorComputeResult.SUCCESS; // Both the input and output file
                                           // paths were correct and existed
-    } else
+    } else{
       return FactorComputeResult.FAILURE; // so inputCOnfig was null
+    }
   }
 }
