@@ -29,13 +29,20 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
   public void setDelimiter(String delimiter) {
     this.delimiter = delimiter;
   }
-  // TODO:update on git
+
   public List<String> getFormattedFactors(int number) {
-    int[] factors = getFactors(number);
-    List<String> formattedFactors = new ArrayList<>();
-    for (int factor : factors) {
-      formattedFactors.add(String.valueOf(factor));
-    }
-    return formattedFactors;
+    // TODO:see if this classifies as validation, i can only return null since
+    // it only returns Lists validate the number, since this is calls the
+    // getFactors method if the number is validated in here, it should be fine
+    // in the method
+    if (number <= 1) {
+      int[] factors = getFactors(number);
+      List<String> formattedFactors = new ArrayList<>();
+      for (int factor : factors) {
+        formattedFactors.add(String.valueOf(factor));
+      }
+      return formattedFactors;
+    } else
+      return null; // number was not positive
   }
 }
