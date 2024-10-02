@@ -1,13 +1,13 @@
 package com.example.factorfinder;
 import java.util.List;
-public class FactorComputationCordinatorImpl
+public class FactorComputationCoordinatorImpl
     implements FactorComputationCordinator {
   private final FactorComputeEngineImpl
       computeEngine; // Reference to the compute engine
   private final FactorDataStoreImpl dataStore; // Reference to the data store
 
   // Constructor to initialize the compute engine and data store
-  public FactorComputationCordinatorImpl(
+  public FactorComputationCoordinatorImpl(
       FactorComputeEngineImpl computeEngine, FactorDataStoreImpl dataStore) {
     this.computeEngine = computeEngine;
     this.dataStore = dataStore;
