@@ -42,7 +42,8 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
         formattedFactors.add(String.valueOf(factor));
       }
       return formattedFactors;
-    } else{
+    } else {
       return null; // number was not positive
+    }
   }
 }
