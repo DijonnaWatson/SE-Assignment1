@@ -1,13 +1,14 @@
 package com.example.factorfinder;
 import java.util.List;
+
 public class FactorComputationCoordinatorImpl
-    implements FactorComputationCordinator {
+    implements FactorComputationCoordinator {
   private final FactorComputeEngineImpl
       computeEngine; // Reference to the compute engine
   private final FactorDataStoreImpl dataStore; // Reference to the data store
 
   // Constructor to initialize the compute engine and data store
-  public FactorComputationCoordinatorImpl(
+  public FactorComputationCordinatorImpl(
       FactorComputeEngineImpl computeEngine, FactorDataStoreImpl dataStore) {
     this.computeEngine = computeEngine;
     this.dataStore = dataStore;
@@ -49,12 +50,15 @@ public class FactorComputationCoordinatorImpl
               != WriteResult.WriteResultStatus.SUCCESS) {
             return FactorComputeResult.FAILURE; // Handles if writing fails
           }
+        } else {
+          System.out.print("Output File path is null!");
         }
       }
 
       return FactorComputeResult.SUCCESS; // Both the input and output file
                                           // paths were correct and existed
-    } else{
+    } else {
+      System.out.print("Input File path is null!");
       return FactorComputeResult.FAILURE; // so inputCOnfig was null
     }
   }
