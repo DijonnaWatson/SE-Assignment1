@@ -88,11 +88,18 @@ public class TestComputeEngineIntegration {
 
     // We expect an empty factor list or an exception.
     int[] factors = engine.getFactors(negativeInput);
+    List<String> formattedFactors =
+        engine.getFormattedFactors(negativeInput); // see how to validate
 
-    // Verify that we get an empty list
+    // Verify that we get an empty array
     assertTrue(
         factors.length == 0, "Factors of a negative number should be empty");
+
+    // Verify that we get an empty list
+    assertTrue(formattedFactors.isEmpty(),
+        "Factors of a negative number should be empty");
   }
+
   @Test
   public void testPrimeNumberFactors() {
     int primeNumber = 13;
@@ -106,8 +113,12 @@ public class TestComputeEngineIntegration {
   @Test
   public void testZeroInputFactors() {
     int[] factors = factorComputeEngine.getFactors(0);
+    List<String> formattedFactors = factorComputeEngine.getFormattedFactors(0);
+
+    // Verify that we get an empty array for 0
+    assertTrue(factors.length == 0, "Factors for 0 should be empty");
 
     // Verify that we get an empty list for 0
-    assertTrue(factors.length == 0, "Factors for 0 should be empty");
+    assertTrue(formattedFactors.isEmpty(), "Factors for 0 should be empty");
   }
 }
