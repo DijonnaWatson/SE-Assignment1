@@ -13,6 +13,7 @@ public class FactorDataStoreImpl implements FactorDataStore {
   public List<Integer> read(FileInputConfig inputConfig) {
     List<Integer> data =
         new ArrayList<>(); // List to hold the integers read from the file
+    // validation of the file path
     if (inputConfig.getFilePath() != null) {
       // Saving the file path from the input configuration into a variable
       String filePath = inputConfig.getFilePath();
@@ -31,15 +32,16 @@ public class FactorDataStoreImpl implements FactorDataStore {
 
       return data;
     } else {
-      return null; // TODO:figure out if it's ok to just return null
+      System.out.println("The input filepath is Null!");
+      return null;
     }
   }
 
   @Override
   public WriteResult appendSingleResult(
       FileOutputConfig outputConfig, List<String> results) {
-    // TODO:See if this validation is ok
-    if (outputConfig.getFilePath() != null && !results.isEmpty()) {
+    // validation of the file path
+    if (outputConfig.getFilePath() != null | !results.isEmpty()) {
       String filePath =
           outputConfig.getFilePath(); //  Saving the file path from the output
                                       //  configuration
@@ -58,6 +60,8 @@ public class FactorDataStoreImpl implements FactorDataStore {
 
       return WriteResult.SUCCESS;
     } else {
+      System.out.println("Error!! Either the output file path is null or the "
+                         + "list of results is empty ");
       return WriteResult.FAILURE;
     }
   }
