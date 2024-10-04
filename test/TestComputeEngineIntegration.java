@@ -2,12 +2,13 @@ package com.example.factorfinder;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
-import com.example.factorfinder.FileOutputConfig;
 import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -123,17 +124,18 @@ public class TestComputeEngineIntegration {
     assertTrue(formattedFactors.isEmpty(), "Factors for 0 should be empty");
   }
   @Test
-public void testIOExceptionForNonExistentFile() {
-  // Simulate an invalid file path that does not exist
-  FileInputConfig nonExistentInputConfig =
-      new FileInputConfig("non_existent_file.txt");
+  public void testIOExceptionForNonExistentFile() {
+    // Simulate an invalid file path that does not exist
+    FileInputConfig nonExistentInputConfig =
+        new FileInputConfig("non_existent_file.txt");
 
-  // We expect an IOException, but since the current code only prints an error,
-  // we will check for the message output in the console
-  List<Integer> result = dataStore.read(nonExistentInputConfig);
+    // We expect an IOException, but since the current code only prints an
+    // error, we will check for the message output in the console
+    List<Integer> result = dataStore.read(nonExistentInputConfig);
 
-  // Validate that the result is null (since in the implementation, if the file
-  // does not exist or path is null, it prints an error and returns null)
-  assertNull(result, "Expected result to be null when the file does not exist");
-}
+    // Validate that the result is null (since in the implementation, if the
+    // file does not exist or path is null, it prints an error and returns null)
+    assertNull(
+        result, "Expected result to be null when the file does not exist");
+  }
 }
