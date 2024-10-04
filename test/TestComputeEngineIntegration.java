@@ -125,17 +125,13 @@ public class TestComputeEngineIntegration {
   }
   @Test
   public void testIOExceptionForNonExistentFile() {
-    // Simulate an invalid file path that does not exist
+    // creating a non existent file to check error handling
     FileInputConfig nonExistentInputConfig =
         new FileInputConfig("non_existent_file.txt");
 
-    // We expect an IOException, but since the current code only prints an
-    // error, we will check for the message output in the console
     List<Integer> result = dataStore.read(nonExistentInputConfig);
 
-    // Validate that the result is null (since in the implementation, if the
-    // file does not exist or path is null, it prints an error and returns null)
-    assertNull(
-        result, "Expected result to be null when the file does not exist");
+    //checking if whats returned by the error is what is expected
+    assertTrue(result.isEmpty(), "Expected an empty list when the file does not exist, but got: " + result);
   }
 }
