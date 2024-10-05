@@ -61,7 +61,7 @@ public class FactorDataStoreImpl implements FactorDataStore {
       return WriteResult.SUCCESS;
     } else {
       System.out.println("Error!! Either the output file path is null or the "
-                         + "list of results is empty ");
+          + "list of results is empty ");
       return WriteResult.FAILURE;
     }
   }
