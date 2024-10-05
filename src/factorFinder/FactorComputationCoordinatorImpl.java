@@ -16,7 +16,8 @@ public class FactorComputationCoordinatorImpl
 
   @Override
   public FactorComputeResult compute(FactorComputeRequest request) {
-    // validating the inputConfig of request
+    try{
+      // validating the inputConfig of request
     if (request.getInputConfig() != null) {
       // Correlates to step 2a. Here we receive requests from the user to start
       // the computation
@@ -56,8 +57,9 @@ public class FactorComputationCoordinatorImpl
       }
 
       return FactorComputeResult.SUCCESS; // Both the input and output file
-                                          // paths were correct and existed
+    }catch(Exception e){// paths were correct and existed
     } else {
+      e.PrintStackTrace();
       System.out.print("Input File path is null!");
       return FactorComputeResult.FAILURE; // so inputCOnfig was null
     }
