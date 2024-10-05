@@ -2,10 +2,12 @@ package com.example.factorfinder;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileInputConfig;
 import com.example.factorfinder.FileOutputConfig;
 import java.util.Arrays;
 import java.util.List;
@@ -109,5 +111,21 @@ public class TestComputeEngineIntegration {
 
     // Verify that we get an empty list for 0
     assertTrue(factors.length == 0, "Factors for 0 should be empty");
+  }
+  @Test
+  public void testIOExceptionForNonExistentFile() {
+    // non existent file path created
+    FileInputConfig nonExistentInputConfig =
+        new FileInputConfig("non_existent_file.txt");
+
+    List<Integer> result = dataStore.read(nonExistentInputConfig);
+
+    // validates if null the expected result is returned
+    assertNull(result,
+        "Expected null when the file does not exist, but got: " + result);
+
+    // If your method returns an empty list for non-existent files:
+    // assertTrue(result.isEmpty(), "Expected an empty list when the file does
+    // not exist, but got: " + result);
   }
 }
