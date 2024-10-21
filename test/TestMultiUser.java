@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TestMultiUser {
-  private FactorComputationCordinatorImpl coordinator;
+  private FactorComputationCoordinatorImpl coordinator;
 
   @BeforeEach
   public void initializeComputeEngine() {
@@ -21,8 +21,8 @@ public class TestMultiUser {
     FactorComputeEngineImpl computeEngine = new FactorComputeEngineImpl();
     FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
 
-    // Instance of FactorComputationCordinatorImpl using the needed parameters
-    coordinator = new FactorComputationCordinatorImpl(computeEngine, dataStore);
+    // Instance of FactorComputationCoordinatorImpl using the needed parameters
+    coordinator = new FactorComputationCoordinatorImpl(computeEngine, dataStore);
   }
 
   @Test
