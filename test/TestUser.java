@@ -3,9 +3,9 @@ package com.example.factorfinder;
 import java.io.File;
 
 public class TestUser {
-  private final FactorComputationCordinatorImpl coordinator;
+  private final FactorComputationCoordinatorImpl coordinator;
 
-  public TestUser(FactorComputationCordinatorImpl coordinator) {
+  public TestUser(FactorComputationCoordinatorImpl coordinator) {
     this.coordinator = coordinator;
   }
 
