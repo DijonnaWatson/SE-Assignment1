@@ -2,4 +2,5 @@
 
 API's chosen: Finding all the factors of the given input, Finding the factorial of a 2-digit number below 50, Even Fibonacci Numbers
 NUM OF THREADS USED: 2
+
 ![API Diagram](https://github.com/DijonnaWatson/SE-Assignment1/blob/Redone-API-A%232/FINDING%20FACTORS%20API%20DIAGRAM.pdf)
