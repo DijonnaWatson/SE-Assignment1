@@ -34,6 +34,8 @@ public class FactorComputationCoordinatorImpl implements FactorComputationCordin
     }
 
     try {
+      List<Future<List<String>>> futures = new ArrayList<>();
+      
       // Passes the integers to the compute component
       for (Integer number : inputData) {
         Callable<List<String>> task = () -> computeEngine.getFormattedFactors(number);
