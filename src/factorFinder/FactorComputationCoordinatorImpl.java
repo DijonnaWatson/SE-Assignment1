@@ -16,7 +16,7 @@ public class FactorComputationCoordinatorImpl implements FactorComputationCordin
       FactorComputeEngineImpl computeEngine, FactorDataStoreImpl dataStore) {
     this.computeEngine = computeEngine;
     this.dataStore = dataStore;
-    this.executor = Executors.newFixedThreadPool(2)
+    this.executor = Executors.newFixedThreadPool(2);
   }
 
   @Override
