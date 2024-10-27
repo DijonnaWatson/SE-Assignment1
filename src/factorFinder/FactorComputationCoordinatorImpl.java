@@ -1,17 +1,21 @@
-package com.example.factorfinder;
+package cookies;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class FactorComputationCoordinatorImpl
     implements FactorComputationCordinator {
   private final FactorComputeEngineImpl computeEngine;// Reference to the compute engine
   private final FactorDataStoreImpl dataStore;// Reference to the data store
-
+  private final ExecutorService executor;
+  
   // Constructor to initialize the compute engine and data store
   public FactorComputationCoordinatorImpl(
       FactorComputeEngineImpl computeEngine, FactorDataStoreImpl dataStore) {
     this.computeEngine = computeEngine;
     this.dataStore = dataStore;
+    this.executor = Executors.newFixedThreadPool(2);
   }
 
   @Override
