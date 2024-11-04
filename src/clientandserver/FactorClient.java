@@ -1,4 +1,4 @@
-package package com.example.clientandserver;
+package com.example.clientandserver;
 import apiProto.CoordinatorEngine.coordinatorRequest;
 import apiProto.CoordinatorEngine.coordinatorResponse;
 import apiProto.FactorServiceGrpc;
