@@ -1,28 +1,55 @@
-apply plugin: 'java'
+plugins{id 'com.google.protobuf' version '0.9.4'} apply plugin : 'java'
 
-sourceSets {
-	main {
-	  java {
-		srcDirs = ['src']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+                                                                 sourceSets {
+  main {
+    proto{
+        srcDirs =
+            [
+              'protobuf'
+            ] // would change to whatever folder name i have w/ .proto files in
+    } java {
+      srcDirs = ['src']
+    }
+  }
+  test {
+    java {
+      srcDirs = ['test']
+    }
+  }
 }
 
-repositories {
-    mavenCentral()
-}
+repositories{mavenCentral()}
 
-dependencies {
+dependencies{
+
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}" implementation
+                   "io.grpc:grpc-services:${grpcVersion}" implementation
+                   "io.grpc:grpc-stub:${grpcVersion}" compileOnly
+                   "org.apache.tomcat:annotations-api:6.0.53"
+
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    testImplementation
+                   "io.grpc:grpc-testing:${grpcVersion}" testImplementation
+                   "io.grpc:grpc-inprocess:${grpcVersion}"
+
     testImplementation('junit:junit:4.12')
-    testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
-	testImplementation('org.mockito:mockito-core:5.10.0')
+        testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
+            testImplementation('org.mockito:mockito-core:5.10.0')}
+
+protobuf {
+  protoc{artifact = "com.google.protobuf:protoc:${protocVersion}"} plugins {
+    grpc {
+      artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+    }
+  }
+  generateProtoTasks {
+    all() *.plugins {
+      grpc {}
+    }
+  }
 }
 
 test {
-    useJUnitPlatform()
+  useJUnitPlatform()
 }
