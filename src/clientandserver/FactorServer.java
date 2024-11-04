@@ -1,4 +1,4 @@
-package clientandserver;
+package com.example.clientandserver;
 
 public class FactorServer {
 
