@@ -1,10 +1,7 @@
 package com.example.clientandserver;
 
 public class FactorServer {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+  }
 }
