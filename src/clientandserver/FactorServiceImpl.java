@@ -1,5 +1,6 @@
 package clientandserver;
 
+
 import apiProto.CoordinatorEngine.coordinatorResponse;
 import apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
@@ -7,6 +8,8 @@ import apiProto.FactorServiceGrpc.FactorServiceImplBase;
 
 public class FactorServiceImpl extends FactorServiceImplBase {
   FactorComputationCordinatorImpl coordinator;
+  //	private FactorComputeEngineImpl computeEngine;
+  //	 private FactorDataStoreImpl dataStore;
 
   public void compute(apiProto.CoordinatorEngine.coordinatorRequest request,
       io.grpc.stub.StreamObserver<
@@ -21,15 +24,27 @@ public class FactorServiceImpl extends FactorServiceImplBase {
     FactorComputeRequest internalRequest = new FactorComputeRequest(
         internallInputFile, internalOutputFile, internalDelimier);
 
+    //		coordinator = new
+    //FactorComputationCordinatorImpl(computeEngine,dataStore);
+
     // Save result from request into the internal type
-    FactorComputeResult internalResponse = coordinator.compute(
+    clientandserver.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
 
+    // Map internalResponse to the gRPC response format
+    FactorComputeResult grpcStatus;
+    if (internalResponse == clientandserver.FactorComputeResult.SUCCESS) {
+      grpcStatus = FactorComputeResult.success;
+    } else {
+      grpcStatus = FactorComputeResult.failure;
+    }
+
     // Translate it back into external type
     coordinatorResponse externalResponse =
-        new coordinatorResponse(internalResponse);
+        coordinatorResponse.newBuilder().setStatus(grpcStatus).build();
+
     responseObserver.onNext(externalResponse); // sending the byte back to the
                                                // Client on the open socket
     responseObserver.onCompleted();
