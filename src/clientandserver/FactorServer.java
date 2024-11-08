@@ -1,5 +1,4 @@
-package com.example.clientandserver;
-
+package clientandserver;
 
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
@@ -10,15 +9,19 @@ import java.util.concurrent.TimeUnit;
 
 public class FactorServer {
   private Server server;
+  private FactorComputeEngineImpl computeEngine;
+  private FactorDataStoreImpl dataStore;
 
   private void start() throws IOException {
     /* The port on which the server should run */
-    int port = 15000; 
+    int port = 15000; // Boilerplate TODO: Consider changing the port (only one
+                      // server per port)
 
     server =
         Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-            .addService(new FactorServiceImpl()) 
-                                                 
+            .addService(new FactorServiceImpl(computeEngine,
+                dataStore)) // Added the parameters because of the constructor I
+                            // made in the FactorServiceImpl
             .addService(ProtoReflectionService.newInstance())
             .build()
             .start();
@@ -53,9 +56,8 @@ public class FactorServer {
 
   public static void main(String[] args) throws Exception {
     FactorServer server =
-        new FactorServer(); 
+        new FactorServer(); // Boilerplate TODO: Change name of class
     server.start();
     server.blockUntilShutdown();
   }
 }
-
