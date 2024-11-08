@@ -1,6 +1,6 @@
 package com.example.apiProto;
 
-//from user to coordinator 
+//from user to coordinator. 
 message coordinatorRequest{
 	optional string inputFile  = 1;
 	optional string outputFile = 2;
