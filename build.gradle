@@ -1,16 +1,32 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'com.google.protobuf' version '0.8.18'
+}
 
 sourceSets {
-	main {
-	  java {
-		srcDirs = ['src']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+    main {
+        java {
+            srcDirs = ['src/main/java', 'build/generated/source/proto/main/java']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.19.1'
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {}
+            }
+        }
+    }
 }
 
 repositories {
@@ -18,9 +34,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation('junit:junit:4.12')
-    testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
-	testImplementation('org.mockito:mockito-core:5.10.0')
+    implementation 'com.google.protobuf:protobuf-java:3.19.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'org.mockito:mockito-core:5.10.0'
 }
 
 test {
