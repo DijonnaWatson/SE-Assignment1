@@ -1,5 +1,7 @@
 package clientandserver;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import apiProto.CoordinatorEngine.coordinatorResponse;
 import apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult;
 import apiProto.DataStore.DataStoreReadRequest;
@@ -39,13 +41,13 @@ public class FactorServiceImpl extends FactorServiceImplBase {
         internallInputFile, internalOutputFile, internalDelimier);
 
     // Save result from request into the internal type
-    clientandserver.FactorComputeResult internalResponse = coordinator.compute(
+    factorFinder.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
 
     // Handle interaction using DataStore
-    if (internalResponse == clientandserver.FactorComputeResult.SUCCESS) {
+    if (internalResponse == factorFinder.FactorComputeResult.SUCCESS) {
       DataStoreReadRequest readRequest =
           DataStoreReadRequest.newBuilder()
               .setInputFilePath(request.getInputFile())
@@ -70,7 +72,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
 
       // Map internalResponse to the gRPC response format
       FactorComputeResult grpcStatus;
-      if (internalResponse == clientandserver.FactorComputeResult.SUCCESS) {
+      if (internalResponse == factorFinder.FactorComputeResult.SUCCESS) {
         grpcStatus = FactorComputeResult.success;
       } else {
         grpcStatus = FactorComputeResult.failure;
@@ -85,5 +87,4 @@ public class FactorServiceImpl extends FactorServiceImplBase {
       responseObserver.onCompleted();
     }
   }
-}
 }
