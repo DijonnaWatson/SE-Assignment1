@@ -1,7 +1,11 @@
 package clientandserver;
 
+import apiProto.DataStoreServiceGrpc;
+import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.protobuf.services.ProtoReflectionService;
 import java.io.IOException;
@@ -12,16 +16,28 @@ public class FactorServer {
   private FactorComputeEngineImpl computeEngine;
   private FactorDataStoreImpl dataStore;
 
+  // Adding stub to communicate with the DataStore Service
+  private DataStoreServiceBlockingStub dataStoreStub;
+
   private void start() throws IOException {
     /* The port on which the server should run */
     int port = 15000; // Boilerplate TODO: Consider changing the port (only one
                       // server per port)
 
+    // Create a channel to communicate with the DataStore service
+    ManagedChannel dataStoreChannel =
+        ManagedChannelBuilder.forAddress("localhost", 50051)
+            .usePlaintext() // Disable encryption for local communication
+            .build();
+
+    // Create a blocking stub for the DataStore service
+    dataStoreStub = DataStoreServiceGrpc.newBlockingStub(dataStoreChannel);
+
     server =
         Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-            .addService(new FactorServiceImpl(computeEngine,
-                dataStore)) // Added the parameters because of the constructor I
-                            // made in the FactorServiceImpl
+            .addService(new FactorServiceImpl(computeEngine, dataStore,
+                dataStoreStub)) // Added the parameters because of the
+                                // constructor I made in the FactorServiceImpl
             .addService(ProtoReflectionService.newInstance())
             .build()
             .start();
