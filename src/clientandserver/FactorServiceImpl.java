@@ -1,7 +1,5 @@
 package clientandserver;
 
-import java.util.List;
-import java.util.stream.Collectors;
 import apiProto.CoordinatorEngine.coordinatorResponse;
 import apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult;
 import apiProto.DataStore.DataStoreReadRequest;
@@ -88,5 +86,4 @@ public class FactorServiceImpl extends FactorServiceImplBase {
     }
   }
 }
-
 }
