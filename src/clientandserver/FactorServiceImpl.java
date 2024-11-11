@@ -10,7 +10,7 @@ import apiProto.DataStore.DataStoreWriteRequest;
 // import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
-import factorFinder.FactorComputationCoordinatorImpl;
+import com.example.factorfinder.FactorComputationCoordinatorImpl;
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorComputeRequest;
 //import factorFinder.FactorComputeResult;
