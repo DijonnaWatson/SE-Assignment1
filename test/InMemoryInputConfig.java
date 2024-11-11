@@ -2,7 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import factorFinder.InputConfig;
+import com.example.factorfinder.InputConfig;
 
 public class InMemoryInputConfig implements InputConfig {
   private final List<Integer> inputData;
