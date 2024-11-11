@@ -46,13 +46,13 @@ public class FactorServiceImpl extends FactorServiceImplBase {
         internallInputFile, internalOutputFile, internalDelimier);
 
     // Save result from request into the internal type
-    factorfinder.FactorComputeResult internalResponse = coordinator.compute(
+    com.example.factorfinder.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
 
     // Handle interaction using DataStore
-    if (internalResponse == factorfinder.FactorComputeResult.SUCCESS) {
+    if (internalResponse == com.example.factorfinder.FactorComputeResult.SUCCESS) {
       DataStoreReadRequest readRequest =
           DataStoreReadRequest.newBuilder()
               .setInputFilePath(request.getInputFile())
@@ -77,7 +77,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
 
       // Map internalResponse to the gRPC response format
       apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult grpcStatus;
-      if (internalResponse == factorfinder.FactorComputeResult.SUCCESS) {
+      if (internalResponse == com.example.factorfinder.FactorComputeResult.SUCCESS) {
         grpcStatus =  apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult.success;
       } else {
         grpcStatus =  apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult.failure;
