@@ -16,8 +16,8 @@ import io.grpc.protobuf.services.ProtoReflectionService;
 
 public class FactorServer {
   private Server server;
-  private FactorComputeEngineImpl computeEngine;
-  private FactorDataStoreImpl dataStore;
+  private FactorComputeEngineImpl computeEngine = new FactorComputeEngineImpl();
+  private FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
 
   // Adding stub to communicate with the DataStore Service
   private DataStoreServiceBlockingStub dataStoreStub;
@@ -28,8 +28,9 @@ public class FactorServer {
                       // server per port)
 
     // Create a channel to communicate with the DataStore service
+    //TODO: I changed the 50051 to port
     ManagedChannel dataStoreChannel =
-        ManagedChannelBuilder.forAddress("localhost", 50051)
+        ManagedChannelBuilder.forAddress("localhost", port)
             .usePlaintext() // Disable encryption for local communication
             .build();
 
