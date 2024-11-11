@@ -1,5 +1,5 @@
 
-package factorfinder;
+package com.example.factorfinder;
 import factorFinder.FileInputConfig;
 import factorFinder.FileOutputConfig;
 
