@@ -1,4 +1,4 @@
-package factorFinder;
+package factorfinder;
 
 import java.util.List;
 
