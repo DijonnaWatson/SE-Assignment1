@@ -1,4 +1,4 @@
-package clientandserver;
+package com.example.clientandserver;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
