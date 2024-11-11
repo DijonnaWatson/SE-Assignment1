@@ -54,12 +54,12 @@ public class FactorClient {
     inputFile = userInput.nextLine();
 
     System.out.println("Enter output file name:");
-    userInput.next();
+    
 
     outputFile = userInput.nextLine();
 
     System.out.println("Enter a delimiter:");
-    userInput.next();
+    
 
     delimiter = userInput.nextLine();
 
