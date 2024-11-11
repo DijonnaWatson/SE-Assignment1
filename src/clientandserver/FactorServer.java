@@ -1,15 +1,18 @@
-package com.example.clientandserver;
+package clientandserver;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
+import factorFinder.FactorComputeEngineImpl;
+import factorFinder.FactorDataStoreImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.protobuf.services.ProtoReflectionService;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class FactorServer {
   private Server server;

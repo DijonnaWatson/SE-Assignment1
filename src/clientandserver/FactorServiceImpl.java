@@ -1,20 +1,25 @@
-package com.example.clientandserver;
+package clientandserver;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import apiProto.CoordinatorEngine.coordinatorResponse;
-import apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult;
 import apiProto.DataStore.DataStoreReadRequest;
 import apiProto.DataStore.DataStoreReadResponse;
 import apiProto.DataStore.DataStoreWriteRequest;
 // import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
-import java.util.List;
-import java.util.stream.Collectors;
+import factorFinder.FactorComputationCoordinatorImpl;
+import factorFinder.FactorComputeEngineImpl;
+import factorFinder.FactorComputeRequest;
+//import factorFinder.FactorComputeResult;
+import factorFinder.FactorDataStoreImpl;
+import factorFinder.FileInputConfig;
+import factorFinder.FileOutputConfig;
 
 public class FactorServiceImpl extends FactorServiceImplBase {
-  private FactorComputationCordinatorImpl coordinator;
+  private FactorComputationCoordinatorImpl coordinator;
   private DataStoreServiceBlockingStub dataStoreStub;
 
   // Constructor
@@ -24,7 +29,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
       DataStoreServiceBlockingStub dataStoreStub) {
     this.dataStoreStub = dataStoreStub;
     this.coordinator =
-        new FactorComputationCordinatorImpl(computeEngine, dataStore);
+        new FactorComputationCoordinatorImpl(computeEngine, dataStore);
   }
 
   public void compute(apiProto.CoordinatorEngine.coordinatorRequest request,
@@ -71,11 +76,11 @@ public class FactorServiceImpl extends FactorServiceImplBase {
       dataStoreStub.write(writeRequest); // write the data to the stub
 
       // Map internalResponse to the gRPC response format
-      FactorComputeResult grpcStatus;
+      apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult grpcStatus;
       if (internalResponse == factorFinder.FactorComputeResult.SUCCESS) {
-        grpcStatus = FactorComputeResult.success;
+        grpcStatus =  apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult.success;
       } else {
-        grpcStatus = FactorComputeResult.failure;
+        grpcStatus =  apiProto.CoordinatorEngine.coordinatorResponse.FactorComputeResult.failure;
       }
 
       // Translate response back into external type

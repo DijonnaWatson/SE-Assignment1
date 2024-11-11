@@ -2,11 +2,10 @@ package clientandserver;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import com.example.apiProto.CoordinatorEngine.coordinatorRequest;
-import com.example.apiProto.CoordinatorEngine.coordinatorResponse;
-import com.example.apiProto.FactorServiceGrpc;
-import com.example.apiProto.FactorServiceGrpc.FactorServiceBlockingStub;
-
+import apiProto.CoordinatorEngine.coordinatorRequest;
+import apiProto.CoordinatorEngine.coordinatorResponse;
+import apiProto.FactorServiceGrpc;
+import apiProto.FactorServiceGrpc.FactorServiceBlockingStub;
 import io.grpc.Channel;
 import io.grpc.Grpc;
 import io.grpc.InsecureChannelCredentials;

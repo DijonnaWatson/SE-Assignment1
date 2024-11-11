@@ -1,4 +1,4 @@
-package com.example.apiProto;
+package apiProto;
 
 //from user to coordinator. 
 message coordinatorRequest{
