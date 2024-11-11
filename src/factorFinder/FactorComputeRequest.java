@@ -1,5 +1,5 @@
 
-package factorFinder;
+package factorfinder;
 import factorFinder.FileInputConfig;
 import factorFinder.FileOutputConfig;
 
