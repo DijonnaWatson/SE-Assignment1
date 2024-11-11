@@ -11,12 +11,12 @@ import apiProto.DataStore.DataStoreWriteRequest;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
 import factorFinder.FactorComputationCoordinatorImpl;
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorComputeRequest;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorComputeRequest;
 //import factorFinder.FactorComputeResult;
-import factorFinder.FactorDataStoreImpl;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
+import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class FactorServiceImpl extends FactorServiceImplBase {
   private FactorComputationCoordinatorImpl coordinator;
