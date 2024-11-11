@@ -5,12 +5,12 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import factorFinder.FactorComputationCordinator;
-import factorFinder.FactorComputeRequest;
-import factorFinder.FactorComputeResult;
-import factorFinder.FactorComputeResult.ComputeResultStatus;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
+import com.example.factorfinder.FactorComputationCordinator;
+import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FactorComputeResult;
+import com.example.factorfinder.FactorComputeResult.ComputeResultStatus;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 
 public class TestFactorComputationCordinator {
