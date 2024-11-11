@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import factorFinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorComputeEngineImpl;
 
 class TestFactorComputeEngine {
   FactorComputeEngineImpl mockEngine = mock(FactorComputeEngineImpl.class);
