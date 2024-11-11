@@ -13,9 +13,9 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import factorFinder.FactorComputationCoordinatorImpl;
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorDataStoreImpl;
+import com.example.factorfinder.FactorComputationCoordinatorImpl;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorDataStoreImpl;
 
 public class TestMultiUser {
   private FactorComputationCoordinatorImpl coordinator;
