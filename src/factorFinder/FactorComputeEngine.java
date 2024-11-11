@@ -1,4 +1,4 @@
-package factorfinder;
+package com.example.factorfinder;
 
 /**
  * API 3: Conceptual API within the compute engine process
