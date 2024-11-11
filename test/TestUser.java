@@ -2,10 +2,10 @@
 
 import java.io.File;
 
-import factorFinder.FactorComputationCoordinatorImpl;
-import factorFinder.FactorComputeRequest;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
+import com.example.factorfinder.FactorComputationCoordinatorImpl;
+import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class TestUser {
   private final FactorComputationCoordinatorImpl coordinator;
