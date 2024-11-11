@@ -1,7 +1,7 @@
 
-package com.example.factorfinder;
-import com.example.factorfinder.FileInputConfig;
-import com.example.factorfinder.FileOutputConfig;
+package factorFinder;
+import factorFinder.FileInputConfig;
+import factorFinder.FileOutputConfig;
 
 public class FactorComputeRequest {
   private static final char DEFAULT_DELIMITER = ';';

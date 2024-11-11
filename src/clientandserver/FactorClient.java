@@ -1,15 +1,17 @@
-package com.example.clientandserver;
-import apiProto.CoordinatorEngine.coordinatorRequest;
-import apiProto.CoordinatorEngine.coordinatorResponse;
-import apiProto.FactorServiceGrpc;
-import apiProto.FactorServiceGrpc.FactorServiceBlockingStub;
+package clientandserver;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+import com.example.apiProto.CoordinatorEngine.coordinatorRequest;
+import com.example.apiProto.CoordinatorEngine.coordinatorResponse;
+import com.example.apiProto.FactorServiceGrpc;
+import com.example.apiProto.FactorServiceGrpc.FactorServiceBlockingStub;
+
 import io.grpc.Channel;
 import io.grpc.Grpc;
 import io.grpc.InsecureChannelCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.StatusRuntimeException;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 /**
  * Questions 2 & 3 on Assignment 7
  * This is the Client file for the Factor

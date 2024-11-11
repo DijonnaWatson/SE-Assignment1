@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +8,14 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import factorFinder.FactorComputationCoordinatorImpl;
+import factorFinder.FactorComputeEngineImpl;
+import factorFinder.FactorDataStoreImpl;
 
 public class TestMultiUser {
   private FactorComputationCoordinatorImpl coordinator;

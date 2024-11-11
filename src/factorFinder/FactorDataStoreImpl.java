@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

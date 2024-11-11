@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 public class FactorComputeEnginePrototype {
   public void prototype(FactorComputeEngine engine) {

@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,6 +1,8 @@
-package com.example.factorfinder;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import factorFinder.OutputConfig;
 
 public class InMemoryOutputConfig implements OutputConfig {
   private final List<String> outputData;

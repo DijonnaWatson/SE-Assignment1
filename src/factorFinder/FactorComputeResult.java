@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 public interface FactorComputeResult {
   static FactorComputeResult SUCCESS = () -> ComputeResultStatus.SUCCESS;

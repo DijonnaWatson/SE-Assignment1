@@ -1,7 +1,11 @@
-package com.example.factorfinder;
-import com.example.factorfinder.WriteResult;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import factorFinder.FactorDataStore;
+import factorFinder.FileInputConfig;
+import factorFinder.FileOutputConfig;
+import factorFinder.WriteResult;
 
 // In-Memory Data Store Implementation
 public class InMemoryFactorDataStore implements FactorDataStore {

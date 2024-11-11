@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 public interface WriteResult {
   static WriteResult SUCCESS = () -> WriteResultStatus.SUCCESS;

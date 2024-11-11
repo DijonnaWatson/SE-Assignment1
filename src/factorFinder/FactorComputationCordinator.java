@@ -1,4 +1,4 @@
-package com.example.factorfinder;
+package factorFinder;
 
 /**
  * API 1: A network API between the user and the compute engine
