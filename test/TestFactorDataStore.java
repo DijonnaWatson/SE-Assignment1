@@ -13,10 +13,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import factorFinder.FactorDataStoreImpl;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
-import factorFinder.WriteResult;
+import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
+import com.example.factorfinder.WriteResult;
 
 public class TestFactorDataStore {
   @Test
