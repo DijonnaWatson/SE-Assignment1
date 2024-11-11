@@ -1,4 +1,4 @@
-package factorFinder;
+package factorfinder;
 
 public interface WriteResult {
   static WriteResult SUCCESS = () -> WriteResultStatus.SUCCESS;
