@@ -12,10 +12,10 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorDataStoreImpl;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class TestComputeEngineIntegration {
   private FactorComputeEngineImpl factorComputeEngine;
