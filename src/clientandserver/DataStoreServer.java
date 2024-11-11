@@ -1,4 +1,4 @@
-package clientandserver;
+package com.example.clientandserver;
 
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
