@@ -1,61 +1,63 @@
 package clientandserver;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.Server;
 import io.grpc.protobuf.services.ProtoReflectionService;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class DataStoreServer {
+  // TODO: setup AddingMachine Service
+  private Server server;
 
-	//TODO: setup AddingMachine Service
-		 private Server server;
-		
-		 //TODO: Create client or use grpcurl to verify that the server can correctly add 2+3
+  // TODO: Create client or use grpcurl to verify that the server can correctly
+  // add 2+3
 
-	     private void start() throws IOException {
-	       /* The port on which the server should run */
-	       int port = 15001; // we're using 15001 for this server 
-	       
-	       server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-	          .addService(new DataStoreServiceImpl()) // Boilerplate TODO: Change name of class
-	           .addService(ProtoReflectionService.newInstance())
-	           .build()
-	           .start();
-	       System.out.println("Server started on port " + port);
-	       
-	       Runtime.getRuntime().addShutdownHook(new Thread() {
-	         @Override
-	         public void run() {
-	           System.err.println("*** shutting down gRPC server since JVM is shutting down");
-	           try {
-	               if (server != null) {
-	                 server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
-	               }
-	           } catch (InterruptedException e) {
-	             e.printStackTrace(System.err);
-	           }
-	           System.err.println("*** server shut down");
-	         }
-	       });
-	     }
+  private void start() throws IOException {
+    /* The port on which the server should run */
+    int port = 15001; // we're using 15001 for this server
 
-	     /**
-	      * Await termination on the main thread since the grpc library uses daemon threads.
-	      */
-	     private void blockUntilShutdown() throws InterruptedException {
-	       if (server != null) {
-	         server.awaitTermination();
-	       }
-	     }
+    server =
+        Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
+            .addService(new DataStoreServiceImpl()) // Boilerplate TODO: Change
+                                                    // name of class
+            .addService(ProtoReflectionService.newInstance())
+            .build()
+            .start();
+    System.out.println("Server started on port " + port);
 
-	     public static void main(String[] args) throws Exception {
-	         DataStoreServer server = new DataStoreServer(); // Boilerplate TODO: Change name of class
-	         server.start();
-	         server.blockUntilShutdown();
-	     }
-		
-	
-	
+    Runtime.getRuntime().addShutdownHook(new Thread() {
+      @Override
+      public void run() {
+        System.err.println(
+            "*** shutting down gRPC server since JVM is shutting down");
+        try {
+          if (server != null) {
+            server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
+          }
+        } catch (InterruptedException e) {
+          e.printStackTrace(System.err);
+        }
+        System.err.println("*** server shut down");
+      }
+    });
+  }
+
+  /**
+   * Await termination on the main thread since the grpc library uses daemon
+   * threads.
+   */
+  private void blockUntilShutdown() throws InterruptedException {
+    if (server != null) {
+      server.awaitTermination();
+    }
+  }
+
+  public static void main(String[] args) throws Exception {
+    DataStoreServer server =
+        new DataStoreServer(); // Boilerplate TODO: Change name of class
+    server.start();
+    server.blockUntilShutdown();
+  }
 }
