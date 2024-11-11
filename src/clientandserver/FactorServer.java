@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorDataStoreImpl;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorDataStoreImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.ManagedChannel;
