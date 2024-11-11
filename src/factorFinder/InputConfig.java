@@ -1,4 +1,4 @@
-package factorfinder;
+package com.example.factorfinder;
 import java.util.List;
 
 public interface InputConfig {
