@@ -1,4 +1,4 @@
-package clientandserver;
+package com.example.clientandserver;
 
 import apiProto.DataStoreServiceGrpc.DataStoreServiceImplBase;
 
