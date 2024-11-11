@@ -2,10 +2,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import factorFinder.FactorDataStore;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
-import factorFinder.WriteResult;
+import com.example.factorfinder.FactorDataStore;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
+import com.example.factorfinder.WriteResult;
 
 // In-Memory Data Store Implementation
 public class InMemoryFactorDataStore implements FactorDataStore {
