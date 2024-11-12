@@ -2,10 +2,10 @@ package com.example.clientandserver;
 
 import apiProto.DataStore;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceImplBase;
-import com.example.factorFinder.FactorDataStoreImpl;
-import com.example.factorFinder.FileInputConfig;
-import com.example.factorFinder.FileOutputConfig;
-import com.example.factorFinder.WriteResult;
+import com.example.factorfinder.FactorDataStoreImpl;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
+import com.example.factorfinder.WriteResult;
 import java.util.List;
 
 public class DataStoreServiceImpl extends DataStoreServiceImplBase {
