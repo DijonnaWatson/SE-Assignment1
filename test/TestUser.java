@@ -1,6 +1,11 @@
-package com.example.factorfinder;
+
 
 import java.io.File;
+
+import com.example.factorfinder.FactorComputationCoordinatorImpl;
+import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class TestUser {
   private final FactorComputationCoordinatorImpl coordinator;

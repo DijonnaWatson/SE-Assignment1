@@ -1,0 +1,20 @@
+package apiProto;
+
+//from user to coordinator. 
+message coordinatorRequest{
+	optional string inputFile  = 1;
+	optional string outputFile = 2;
+	optional string delimiter = 3;
+}
+
+message coordinatorResponse{
+	enum FactorComputeResult {
+		success = 1;
+		failure = 2;
+	}
+	optional FactorComputeResult status = 3;
+}
+
+service FactorService{
+	rpc compute (coordinatorRequest) returns (coordinatorResponse);
+}

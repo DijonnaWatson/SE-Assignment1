@@ -1,0 +1,33 @@
+package apiProto;
+
+//coordinator to dataStore 
+
+// Message for requests to the DataStore service to read data from an input file
+message DataStoreReadRequest {
+    optional string inputFilePath = 1; // Path to the input file
+}
+
+
+// Message for responses from the DataStore service with read data or an error status
+message DataStoreReadResponse {
+  repeated  int32 data = 1;      // List of integers read from the input file
+  optional  string status = 2;            // Status message ("success" or "failure")
+  optional  string errorMessage = 3;      // Error message if reading fails
+}
+
+// Message for requests to the DataStore service to write results to an output file
+message DataStoreWriteRequest {
+    optional string outputFilePath = 1;    // Path to the output file
+    repeated string results = 2;  // List of formatted factor strings to be written
+}
+
+// Message for responses from the DataStore service indicating write status
+message DataStoreWriteResponse {
+    optional string status = 1;            // Status message ("success" or "failure")
+    optional string errorMessage = 2;      // Error message if writing fails
+}
+
+service DataStoreService {
+    rpc read(DataStoreReadRequest) returns (DataStoreReadResponse);
+    rpc write(DataStoreWriteRequest) returns (DataStoreWriteResponse);
+}
