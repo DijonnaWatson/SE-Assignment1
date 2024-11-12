@@ -2,8 +2,8 @@ package com.example.factorfinder;
 
 import java.util.List;
 
-public class FactorComputationCordinatorPrototype {
-  public void prototype(FactorComputationCordinator apiToCall) {
+public class FactorComputationCoordinatorPrototype {
+  public void prototype(FactorComputationCoordinator apiToCall) {
     // Use concrete implementations of InputConfig and OutputConfig
     FileInputConfig inputConfig =
         new FileInputConfig("input.txt"); // just used temporary files
