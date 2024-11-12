@@ -17,7 +17,7 @@ public class TestFactorComputationCoordinator {
   @Test
   public void testFactorComputationCoordinator() {
     // Mock the FactorComputationCordinator API interface
-    FactorComputationCordinator apiMock =
+    FactorComputationCoordinator apiMock =
         Mockito.mock(FactorComputationCoordinator.class);
 
     // Mock of the Implemented InputConfig and OutputConfig, and
