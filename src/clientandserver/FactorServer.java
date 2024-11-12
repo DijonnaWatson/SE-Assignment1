@@ -1,12 +1,12 @@
-package com.example.clientandserver;
+package clientandserver;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
-import com.example.factorfinder.FactorComputeEngineImpl;
-import com.example.factorfinder.FactorDataStoreImpl;
+import factorFinder.FactorComputeEngineImpl;
+import factorFinder.FactorDataStoreImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.ManagedChannel;
@@ -30,7 +30,7 @@ public class FactorServer {
     // Create a channel to communicate with the DataStore service
     //TODO: I changed the 50051 to port
     ManagedChannel dataStoreChannel =
-        ManagedChannelBuilder.forAddress("localhost", port)
+        ManagedChannelBuilder.forAddress("localhost", 15001)//needs to use the same port as the DataStoreServer
             .usePlaintext() // Disable encryption for local communication
             .build();
 
