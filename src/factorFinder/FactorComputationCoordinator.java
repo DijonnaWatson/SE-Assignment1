@@ -13,6 +13,6 @@ package com.example.factorfinder;
  * objects).
  */
 
-public interface FactorComputationCordinator {
+public interface FactorComputationCoordinator {
   FactorComputeResult compute(FactorComputeRequest request);
 }

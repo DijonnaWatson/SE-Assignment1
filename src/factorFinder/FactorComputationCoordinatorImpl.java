@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class FactorComputationCoordinatorImpl implements FactorComputationCordinator {
+public class FactorComputationCoordinatorImpl implements FactorComputationCoordinator {
   private final FactorComputeEngineImpl computeEngine; // Reference to the compute engine
   private final FactorDataStoreImpl dataStore; // Reference to the data store
   private final ExecutorService executor;

@@ -5,7 +5,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import com.example.factorfinder.FactorComputationCordinator;
+import com.example.factorfinder.FactorComputationCoordinator;
 import com.example.factorfinder.FactorComputeRequest;
 import com.example.factorfinder.FactorComputeResult;
 import com.example.factorfinder.FactorComputeResult.ComputeResultStatus;
@@ -13,12 +13,12 @@ import com.example.factorfinder.FileInputConfig;
 import com.example.factorfinder.FileOutputConfig;
 
 
-public class TestFactorComputationCordinator {
+public class TestFactorComputationCoordinator {
   @Test
-  public void testFactorComputationCordinator() {
+  public void testFactorComputationCoordinator() {
     // Mock the FactorComputationCordinator API interface
-    FactorComputationCordinator apiMock =
-        Mockito.mock(FactorComputationCordinator.class);
+    FactorComputationCoordinator apiMock =
+        Mockito.mock(FactorComputationCoordinator.class);
 
     // Mock of the Implemented InputConfig and OutputConfig, and
     // FactorComputeRequest
@@ -52,7 +52,7 @@ public class TestFactorComputationCordinator {
   // I did change the prototype params, idk if that's ok, but the test works now
   // so..
   public void prototype(
-      FactorComputationCordinator apiToCall, FactorComputeRequest request) {
+      FactorComputationCoordinator apiToCall, FactorComputeRequest request) {
     // Call the compute method using the apiToCall instance with the mocked
     // request
     FactorComputeResult result = apiToCall.compute(request);
