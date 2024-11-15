@@ -1,10 +1,10 @@
-package clientandserver;
+package com.example.clientandserver;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorDataStoreImpl;
+import com.example.factorFinder.FactorComputeEngineImpl;
+import com.example.factorFinder.FactorDataStoreImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.ManagedChannel;
