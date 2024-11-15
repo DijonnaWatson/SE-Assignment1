@@ -3,10 +3,10 @@ package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FactorComputeEngineOptimized implements FactorComputeEngine {
+public class FactorComputeEngineOptimizedImpl implements FactorComputeEngine {
   private String delimiter = ",";
 
-  @Override
+  
   public int[] getFactors(int number) {
     if (number < 1) {  //checks for valid input
       System.out.println("The number was < 1 in the getFactors() method");
