@@ -1,4 +1,4 @@
-package factorFinder;
+package com.example.factorFinder;
 import java.util.ArrayList;
 import java.util.List;
 
