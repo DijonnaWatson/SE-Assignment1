@@ -37,7 +37,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
         internalInputFile, internalOutputFile, internalDelimier);
 
     // Save result from request into the internal type
-    factorFinder.FactorComputeResult internalResponse = coordinator.compute(
+    com.example.factorFinder.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
