@@ -9,6 +9,7 @@ import apiProto.FactorServiceGrpc.FactorServiceImplBase;
 import com.example.factorfinder.FactorComputationCoordinatorImpl;
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FactorComputeResult;
 //import factorFinder.FactorComputeResult;
 import com.example.factorfinder.FileInputConfig;
 import com.example.factorfinder.FileOutputConfig;
