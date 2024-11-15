@@ -1,4 +1,4 @@
-package com.example.factorFinder;
+package com.example.factorfinder;
 
 import apiProto.DataStore.DataStoreReadRequest;
 import apiProto.DataStore.DataStoreReadResponse;
