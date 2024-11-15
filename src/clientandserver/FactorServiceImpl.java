@@ -1,20 +1,17 @@
 package com.example.clientandserver;
 
+
 import apiProto.CoordinatorEngine.coordinatorResponse;
-import apiProto.DataStore.DataStoreReadRequest;
-import apiProto.DataStore.DataStoreReadResponse;
-import apiProto.DataStore.DataStoreWriteRequest;
+
 // import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
-import com.example.factorFinder.FactorComputationCoordinatorImpl;
-import com.example.factorFinder.FactorComputeEngineImpl;
-import com.example.factorFinder.FactorComputeRequest;
-import com.example.factorFinder.FactorDataStoreImpl;
-import com.example.factorFinder.FileInputConfig;
-import com.example.factorFinder.FileOutputConfig;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.example.factorfinder.FactorComputationCoordinatorImpl;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorComputeRequest;
+//import factorFinder.FactorComputeResult;
+import com.example.factorfinder.FileInputConfig;
+import com.example.factorfinder.FileOutputConfig;
 
 public class FactorServiceImpl extends FactorServiceImplBase {
   private FactorComputationCoordinatorImpl coordinator;
