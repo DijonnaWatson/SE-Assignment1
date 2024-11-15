@@ -1,4 +1,4 @@
-package clientandserver;
+package com.example.clientandserver;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,12 +9,12 @@ import apiProto.DataStore.DataStoreWriteRequest;
 // import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
-import factorFinder.FactorComputationCoordinatorImpl;
-import factorFinder.FactorComputeEngineImpl;
-import factorFinder.FactorComputeRequest;
-import factorFinder.FactorDataStoreImpl;
-import factorFinder.FileInputConfig;
-import factorFinder.FileOutputConfig;
+import com.example.factorFinder.FactorComputationCoordinatorImpl;
+import com.example.factorFinder.FactorComputeEngineImpl;
+import com.example.factorFinder.FactorComputeRequest;
+import com.example.factorFinder.FactorDataStoreImpl;
+import com.example.factorFinder.FileInputConfig;
+import com.example.factorFinder.FileOutputConfig;
 
 public class FactorServiceImpl extends FactorServiceImplBase {
  private FactorComputationCoordinatorImpl coordinator;
