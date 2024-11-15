@@ -1,46 +1,52 @@
 package com.example.clientandserver;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
-import com.example.factorFinder.FactorComputeEngineImpl;
-import com.example.factorFinder.FactorDataStoreImpl;
+import com.example.factorfinder.FactorComputeEngineImpl;
+import com.example.factorfinder.FactorDataStoreImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.protobuf.services.ProtoReflectionService;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class FactorServer {
   private Server server;
   private FactorComputeEngineImpl computeEngine = new FactorComputeEngineImpl();
-  //  private FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
+  // private FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
+
   // Adding stub to communicate with the DataStore Service
   private DataStoreServiceBlockingStub dataStoreStub;
+
   private void start() throws IOException {
     /* The port on which the server should run */
     int port = 15000; // Boilerplate TODO: Consider changing the port (only one
                       // server per port)
+
     // Create a channel to communicate with the DataStore service
-    // TODO: I changed the 50051 to port
+    //TODO: I changed the 50051 to port
     ManagedChannel dataStoreChannel =
-        ManagedChannelBuilder
-            .forAddress("localhost",
-                15001) // needs to use the same port as the DataStoreServer
+        ManagedChannelBuilder.forAddress("localhost", 15001)//needs to use the same port as the DataStoreServer
             .usePlaintext() // Disable encryption for local communication
             .build();
+
     // Create a blocking stub for the DataStore service
     dataStoreStub = DataStoreServiceGrpc.newBlockingStub(dataStoreChannel);
+
     server =
         Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-            .addService(new FactorServiceImpl(computeEngine,
+            .addService(new FactorServiceImpl(computeEngine, 
                 dataStoreStub)) // Added the parameters because of the
                                 // constructor I made in the FactorServiceImpl
             .addService(ProtoReflectionService.newInstance())
             .build()
             .start();
     System.out.println("Server started on port " + port);
+
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
@@ -57,6 +63,7 @@ public class FactorServer {
       }
     });
   }
+
   /**
    * Await termination on the main thread since the grpc library uses daemon
    * threads.
@@ -66,6 +73,7 @@ public class FactorServer {
       server.awaitTermination();
     }
   }
+
   public static void main(String[] args) throws Exception {
     FactorServer server =
         new FactorServer(); // Boilerplate TODO: Change name of class
