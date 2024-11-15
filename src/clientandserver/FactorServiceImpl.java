@@ -38,7 +38,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
         internalInputFile, internalOutputFile, internalDelimier);
 
     // Save result from request into the internal type
-    com.example.factorFinder.FactorComputeResult internalResponse = coordinator.compute(
+    com.example.factorfinder.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
@@ -68,7 +68,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
     // Map internalResponse to the gRPC response format
     apiProto.CoordinatorEngine.coordinatorResponse
         .FactorComputeResult grpcStatus;
-    if (internalResponse == com.example.factorFinder.FactorComputeResult.SUCCESS) {
+    if (internalResponse == com.example.factorfinder.FactorComputeResult.SUCCESS) {
       grpcStatus = apiProto.CoordinatorEngine.coordinatorResponse
                        .FactorComputeResult.success;
     } else {
