@@ -1,7 +1,7 @@
 
 import com.example.factorfinder.FactorComputeEngine;
 import com.example.factorfinder.FactorComputeEngineImpl;
-import com.example.factorfinder.FactorComputeEngineOptimized;
+import com.example.factorfinder.FactorComputeEngineOptimizedImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
