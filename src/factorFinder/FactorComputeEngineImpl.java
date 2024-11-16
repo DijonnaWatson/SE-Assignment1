@@ -2,7 +2,6 @@ package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FactorComputeEngineImpl implements FactorComputeEngine {
   String delimiter = ",";
 
@@ -44,7 +43,7 @@ public class FactorComputeEngineImpl implements FactorComputeEngine {
       int[] factors = getFactors(number);
       List<String> formattedFactors = new ArrayList<>();
       for (int factor : factors) {
-        formattedFactors.add(String.valueOf(factor));
+        formattedFactors.add(String.valueOf(factor) + delimiter);
       }
       return formattedFactors;
     } else {

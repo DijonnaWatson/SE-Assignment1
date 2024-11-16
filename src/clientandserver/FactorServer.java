@@ -17,7 +17,7 @@ import io.grpc.protobuf.services.ProtoReflectionService;
 public class FactorServer {
   private Server server;
   private FactorComputeEngineImpl computeEngine = new FactorComputeEngineImpl();
-  private FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
+  // private FactorDataStoreImpl dataStore = new FactorDataStoreImpl();
 
   // Adding stub to communicate with the DataStore Service
   private DataStoreServiceBlockingStub dataStoreStub;
@@ -39,7 +39,7 @@ public class FactorServer {
 
     server =
         Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
-            .addService(new FactorServiceImpl(computeEngine, dataStore,
+            .addService(new FactorServiceImpl(computeEngine, 
                 dataStoreStub)) // Added the parameters because of the
                                 // constructor I made in the FactorServiceImpl
             .addService(ProtoReflectionService.newInstance())
