@@ -13,7 +13,7 @@ public class FactorComputeEngineBenchmarkTest {
     int testNumber = 1_000_000; //test number to find factors of 
 
     FactorComputeEngine originalEngine = new FactorComputeEngineImpl();
-    FactorComputeEngine optimizedEngine = new FactorComputeEngineOptimized();
+    FactorComputeEngine optimizedEngine = new FactorComputeEngineOptimizedImpl();
 
     //original implementation
     long originalStart = System.currentTimeMillis();
