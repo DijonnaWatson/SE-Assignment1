@@ -1,20 +1,16 @@
 package com.example.clientandserver;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 import apiProto.CoordinatorEngine.coordinatorResponse;
-import apiProto.DataStore.DataStoreReadRequest;
-import apiProto.DataStore.DataStoreReadResponse;
-import apiProto.DataStore.DataStoreWriteRequest;
+
 // import apiProto.DataStoreServiceGrpc;
 import apiProto.DataStoreServiceGrpc.DataStoreServiceBlockingStub;
 import apiProto.FactorServiceGrpc.FactorServiceImplBase;
 import com.example.factorfinder.FactorComputationCoordinatorImpl;
 import com.example.factorfinder.FactorComputeEngineImpl;
 import com.example.factorfinder.FactorComputeRequest;
+import com.example.factorfinder.FactorComputeResult;
 //import factorFinder.FactorComputeResult;
-import com.example.factorfinder.FactorDataStoreImpl;
 import com.example.factorfinder.FileInputConfig;
 import com.example.factorfinder.FileOutputConfig;
 
@@ -42,7 +38,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
         internalInputFile, internalOutputFile, internalDelimier);
 
     // Save result from request into the internal type
-    clientandserver.FactorComputeResult internalResponse = coordinator.compute(
+    com.example.factorfinder.FactorComputeResult internalResponse = coordinator.compute(
         internalRequest); // TODO : make type FactorComputeRequest and get
                           // Result but need to make it back into the
                           // coordinatorRepsonse
@@ -72,7 +68,7 @@ public class FactorServiceImpl extends FactorServiceImplBase {
     // Map internalResponse to the gRPC response format
     apiProto.CoordinatorEngine.coordinatorResponse
         .FactorComputeResult grpcStatus;
-    if (internalResponse == clientandserver.FactorComputeResult.SUCCESS) {
+    if (internalResponse == com.example.factorfinder.FactorComputeResult.SUCCESS) {
       grpcStatus = apiProto.CoordinatorEngine.coordinatorResponse
                        .FactorComputeResult.success;
     } else {
