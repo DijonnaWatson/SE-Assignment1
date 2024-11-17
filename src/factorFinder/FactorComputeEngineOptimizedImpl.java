@@ -44,7 +44,7 @@ public class FactorComputeEngineOptimizedImpl implements FactorComputeEngine {
     int[] factors = getFactors(number);
     List<String> formattedFactors = new ArrayList<>();
     for (int factor : factors) {
-      formattedFactors.add(String.valueOf(factor));
+      formattedFactors.add(String.valueOf(factor) + delimiter);
     }
     return formattedFactors;
   }
