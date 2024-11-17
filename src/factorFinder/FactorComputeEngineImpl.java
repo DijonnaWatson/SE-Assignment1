@@ -2,7 +2,6 @@ package com.example.factorfinder;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FactorComputeEngineImpl implements FactorComputeEngine {
   String delimiter = ",";
 
