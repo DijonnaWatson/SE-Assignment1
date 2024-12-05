@@ -87,7 +87,9 @@ task runServersAndTest {
           'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
           'com.example.clientandserver.DataStoreServer'
         ]
-            .execute() def factorServerProcess =
+            .execute()
+
+                def factorServerProcess =
             [
               'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
               'com.example.clientandserver.FactorServer'
@@ -97,10 +99,12 @@ task runServersAndTest {
                     println "Both servers started for testing..."
 
             try {
+      // the tests
       exec {
         commandLine './gradlew', 'test'
       }
     } finally {
+      // Cleanup: Stop both server processes
       dataStoreProcess.destroy() factorServerProcess.destroy() println
           "Both servers stopped after testing."
     }
