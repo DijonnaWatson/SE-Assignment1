@@ -51,3 +51,58 @@ protobuf {
 test {
    useJUnitPlatform()
 }
+// Task to run the DataStoreServer
+task runDataStoreServer(type
+                        : JavaExec){
+    group = 'application' description =
+        'Starts the DataStoreServer.' mainClass =
+            'com.example.clientandserver.DataStoreServer' classpath =
+                sourceSets.main.runtimeClasspath}
+
+// Task to run the FactorServer
+task runFactorServer(type
+                     : JavaExec){
+    group = 'application' description = 'Starts the FactorServer.' mainClass =
+        'com.example.clientandserver.FactorServer' classpath =
+            sourceSets.main.runtimeClasspath}
+
+// Task to start both servers
+task runServers {
+  group = 'application' description =
+      'Starts both DataStoreServer and FactorServer.' dependsOn 'runDataStoreServer',
+  'runFactorServer'
+
+      doLast {
+    println "Both servers are running..."
+  }
+}
+
+// Task to start both servers and run tests
+task runServersAndTest {
+  group = 'verification' description = 'Starts both servers and runs tests.'
+
+      doLast {
+    def dataStoreProcess =
+        [
+          'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
+          'com.example.clientandserver.DataStoreServer'
+        ]
+            .execute() def factorServerProcess =
+            [
+              'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
+              'com.example.clientandserver.FactorServer'
+            ]
+                .execute()
+
+                    println "Both servers started for testing..."
+
+            try {
+      exec {
+        commandLine './gradlew', 'test'
+      }
+    } finally {
+      dataStoreProcess.destroy() factorServerProcess.destroy() println
+          "Both servers stopped after testing."
+    }
+  }
+}
