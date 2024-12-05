@@ -77,25 +77,13 @@ task runFactorServer(type: JavaExec) {
 
 // Task to start both servers
 task runServersAndTest {
-    group = 'verification'
+   group = 'verification'
     description = 'Starts both servers and runs tests.'
 
     doLast {
-        // Start DataStoreServer
-        def dataStoreServer = tasks.create('runDataStoreServer', JavaExec) {
-            classpath = sourceSets.main.runtimeClasspath
-            main = 'com.example.clientandserver.DataStoreServer'
-        }
-
-        // Start FactorServer
-        def factorServer = tasks.create('runFactorServer', JavaExec) {
-            classpath = sourceSets.main.runtimeClasspath
-            main = 'com.example.clientandserver.FactorServer'
-        }
-
         // Start both servers asynchronously
-        def dataStoreProcess = dataStoreServer.exec()
-        def factorServerProcess = factorServer.exec()
+        def dataStoreProcess = ['java', '-cp', sourceSets.main.runtimeClasspath.asPath, 'com.example.clientandserver.DataStoreServer'].execute()
+        def factorServerProcess = ['java', '-cp', sourceSets.main.runtimeClasspath.asPath, 'com.example.clientandserver.FactorServer'].execute()
 
         println "Both servers started for testing..."
 
