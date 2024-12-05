@@ -67,44 +67,34 @@ task runFactorServer(type
             sourceSets.main.runtimeClasspath}
 
 // Task to start both servers
-task runServers {
-  group = 'application' description =
-      'Starts both DataStoreServer and FactorServer.' dependsOn 'runDataStoreServer',
-  'runFactorServer'
-
-      doLast {
-    println "Both servers are running..."
-  }
-}
-
-// Task to start both servers and run tests
 task runServersAndTest {
   group = 'verification' description = 'Starts both servers and runs tests.'
 
       doLast {
-    def dataStoreProcess =
-        [
-          'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
-          'com.example.clientandserver.DataStoreServer'
-        ]
-            .execute()
+    // Start DataStoreServer
+    def dataStoreServer = tasks.create('runDataStoreServer',
+        JavaExec){classpath = sourceSets.main.runtimeClasspath main =
+                      'com.example.clientandserver.DataStoreServer'}
 
-                def factorServerProcess =
-            [
-              'java', '-cp', sourceSets.main.runtimeClasspath.asPath,
-              'com.example.clientandserver.FactorServer'
-            ]
-                .execute()
+                          // Start FactorServer
+                          def factorServer =
+        tasks.create('runFactorServer', JavaExec){
+            classpath = sourceSets.main.runtimeClasspath main =
+                'com.example.clientandserver.FactorServer'}
 
-                    println "Both servers started for testing..."
+        // Start both servers asynchronously
+        def dataStoreProcess = dataStoreServer.exec() def factorServerProcess =
+            factorServer.exec()
+
+                println "Both servers started for testing..."
 
             try {
-      // the tests
+      // Run the tests
       exec {
         commandLine './gradlew', 'test'
       }
     } finally {
-      // Cleanup: Stop both server processes
+      // Stop both servers
       dataStoreProcess.destroy() factorServerProcess.destroy() println
           "Both servers stopped after testing."
     }
