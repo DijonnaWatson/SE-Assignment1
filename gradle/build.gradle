@@ -1,113 +1,114 @@
 plugins {
    id 'com.google.protobuf' version '0.9.4'
 }
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
+eclipse.project.name = 'SE-Assignment1'
 
 sourceSets {
-	main {
-	  proto {
-	    srcDirs = ['protobuf']//would change to whatever folder name i have w/ .proto files in
-	  }
-	  java {
-		srcDirs = ['src',
-					'build/generated/source/proto/main/grpc',
-					'build/generated/source/proto/main/java']
-	  }
-	}
-	test {
-	  java {
-	     srcDirs = ['test']
-	  }
-	 }
+    main {
+        proto {
+            srcDirs = ['protobuf'] // would change to whatever folder name you have with .proto files in
+        }
+        java {
+            srcDirs = ['src',
+                       'build/generated/source/proto/main/grpc',
+                       'build/generated/source/proto/main/java']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
 }
+
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
+
 def grpcVersion = '1.59.1'
 def protobufVersion = '3.25.1'
 def protocVersion = protobufVersion
+
 dependencies {
     implementation "io.grpc:grpc-protobuf:${grpcVersion}"
-   implementation "io.grpc:grpc-services:${grpcVersion}"
-   implementation "io.grpc:grpc-stub:${grpcVersion}"
-   compileOnly "org.apache.tomcat:annotations-api:6.0.53"
-   runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
-   testImplementation "io.grpc:grpc-testing:${grpcVersion}"
-   testImplementation "io.grpc:grpc-inprocess:${grpcVersion}"
-   testImplementation('junit:junit:4.12')
-   testImplementation('org.junit.jupiter:junit-jupiter:5.10.1')
-	testImplementation('org.mockito:mockito-core:5.10.0')
+    implementation "io.grpc:grpc-services:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    compileOnly "org.apache.tomcat:annotations-api:6.0.53"
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+    testImplementation "io.grpc:grpc-testing:${grpcVersion}"
+    testImplementation "io.grpc:grpc-inprocess:${grpcVersion}"
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.junit.jupiter:junit-jupiter:5.10.1')
+    testImplementation('org.mockito:mockito-core:5.10.0')
 }
+
 protobuf {
-   protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
-   plugins {
-       grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
-   }
-   generateProtoTasks {
-       all()*.plugins { grpc {} }
-   }
+    protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
+    plugins {
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
+    }
+    generateProtoTasks {
+        all()*.plugins { grpc {} }
+    }
 }
+
 test {
-   useJUnitPlatform()
+    useJUnitPlatform()
 }
+
 // Task to run the DataStoreServer
-task runDataStoreServer(type
-                        : JavaExec){
-    group = 'application' description =
-        'Starts the DataStoreServer.' mainClass =
-            'com.example.clientandserver.DataStoreServer' classpath =
-                sourceSets.main.runtimeClasspath}
+task runDataStoreServer(type: JavaExec) {
+    group = 'application'
+    description = 'Starts the DataStoreServer.'
+    mainClass = 'com.example.clientandserver.DataStoreServer'
+    classpath = sourceSets.main.runtimeClasspath
+}
 
 // Task to run the FactorServer
-task runFactorServer(type
-                     : JavaExec){
-    group = 'application' description = 'Starts the FactorServer.' mainClass =
-        'com.example.clientandserver.FactorServer' classpath =
-            sourceSets.main.runtimeClasspath}
-
-// Task to start both servers
-task runServers {
-  group = 'application' description =
-      'Starts both DataStoreServer and FactorServer.' dependsOn 'runDataStoreServer',
-  'runFactorServer'
-
-      doLast {
-    println "Both servers are running..."
-  }
+task runFactorServer(type: JavaExec) {
+    group = 'application'
+    description = 'Starts the FactorServer.'
+    mainClass = 'com.example.clientandserver.FactorServer'
+    classpath = sourceSets.main.runtimeClasspath
 }
 
-// Task to start both servers and run tests
+// Task to start both servers
 task runServersAndTest {
-  group = 'verification' description = 'Starts both servers and runs tests.'
+    group = 'verification'
+    description = 'Starts both servers and runs tests.'
 
-      doLast {
-    // Start DataStoreServer
-    def dataStoreServer = tasks.create('runDataStoreServer',
-        JavaExec){classpath = sourceSets.main.runtimeClasspath main =
-                      'com.example.clientandserver.DataStoreServer'}
+    doLast {
+        // Start DataStoreServer
+        def dataStoreServer = tasks.create('runDataStoreServer', JavaExec) {
+            classpath = sourceSets.main.runtimeClasspath
+            main = 'com.example.clientandserver.DataStoreServer'
+        }
 
-                          // Start FactorServer
-                          def factorServer =
-        tasks.create('runFactorServer', JavaExec){
-            classpath = sourceSets.main.runtimeClasspath main =
-                'com.example.clientandserver.FactorServer'}
+        // Start FactorServer
+        def factorServer = tasks.create('runFactorServer', JavaExec) {
+            classpath = sourceSets.main.runtimeClasspath
+            main = 'com.example.clientandserver.FactorServer'
+        }
 
         // Start both servers asynchronously
-        def dataStoreProcess = dataStoreServer.exec() def factorServerProcess =
-            factorServer.exec()
+        def dataStoreProcess = dataStoreServer.exec()
+        def factorServerProcess = factorServer.exec()
 
-                println "Both servers started for testing..."
+        println "Both servers started for testing..."
 
-            try {
-      // Run the tests
-      exec {
-        commandLine './gradlew', 'test'
-      }
-    } finally {
-      // Stop both servers
-      dataStoreProcess.destroy() factorServerProcess.destroy() println
-          "Both servers stopped after testing."
+        try {
+            // Run the tests
+            exec {
+                commandLine './gradlew', 'test'
+            }
+        } finally {
+            // Stop both servers
+            dataStoreProcess.destroy()
+            factorServerProcess.destroy()
+            println "Both servers stopped after testing."
+        }
     }
-  }
 }
